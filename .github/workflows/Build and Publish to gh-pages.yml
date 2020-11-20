@@ -7,9 +7,9 @@ name: CI
 on:
   push:
     branches: [ main ]
-    paths:
-    - 'criptografia/**'
-    - '!criptografia/Guias/**/samples/**'
+    paths-ignore:
+    - '!criptografia/**'
+    - '!.github/workflows'
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
