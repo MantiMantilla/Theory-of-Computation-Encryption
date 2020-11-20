@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>&lt;no title&gt; &#8212; T. de la Computación - Proyecto Criptografía</title>
+    <title>Introducción a la Criptografía &#8212; T. de la Computación - Proyecto Criptografía</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -91,6 +91,18 @@
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Historia
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introducción a la Criptografía
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
  <span class="caption-text">
   Matemática y Computación
  </span>
@@ -182,6 +194,26 @@
 
         <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main?urlpath=tree/criptografia/Historia/Chapter 1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
     </div>
 
     <!-- Table of contents -->
@@ -191,7 +223,12 @@
             <i class="fas fa-list"></i> Contents
         </div>
         <nav id="bd-toc-nav">
-            <ul class="simple nav section-nav flex-column">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivacion">
+   Motivación
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -203,7 +240,14 @@
         
               <div>
                 
-  
+  <div class="section" id="introduccion-a-la-criptografia">
+<h1>Introducción a la Criptografía<a class="headerlink" href="#introduccion-a-la-criptografia" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
+<p>La criptografía es la disciplina que se dedica a codificar y alterar mensajes para que solo los puedan leer ciertos receptores. El siglo XX fue el periodo de desarrollo más importante para la criptografía principalmente por la necesidad de mandar mensajes secretos durante las dos guerras mundiales. El desarrollo de nuevas tecnologías, principalmente la computación hizo necesario nuevas técnicas para encriptar mensajes. La criptografía siempre había necesitado que los dos participantes en la comunicación acordaran una clave de antemano para mandar mensajes cifrados, este tipo de criptografía se llama simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, usando una clave pública, este tipo de criptografía se denomina asimétrica,y la primera vez que descubrieron un método de este tipo fue en 1975. Nuestro proyecto se enfoca en el protocolo de criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.</p>
+</div>
+</div>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
