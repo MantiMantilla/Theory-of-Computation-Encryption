@@ -1,0 +1,4 @@
+criptografia/_build
+.DS_store
+**/.DS_store
+criptografia/**/.ipynb_checkpoints

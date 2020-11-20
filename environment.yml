@@ -1,0 +1,10 @@
+# This is a list of dependency python packages to launch the interactive code tools, Binder and Thebe. Include only packages required for code block execution in jupyter notebooks.
+name: criptografía-environment
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - matplotlib
+  - pandas
+  - networkx
+  - jupytext>=0.16
