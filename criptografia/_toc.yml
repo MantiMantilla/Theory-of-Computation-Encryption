@@ -1,7 +1,7 @@
 - file: intro.md
 - part: Historia
   chapters:
-  - file: Historia/Chapter 1.md
+  - file: Historia/Chapter 1.ipynb
 - part: Matemática y Computación
   chapters:
   - file: Matematica/Primeros Conceptos.ipynb
