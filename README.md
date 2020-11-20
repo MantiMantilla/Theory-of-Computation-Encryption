@@ -6,9 +6,9 @@ El proyecto consiste en contar con una página web para ilustrar aspectos releva
 
 Acceda a la página estática a través de este [enlace](https://mantimantilla.github.io/Theory-of-Computation-Encryption/).
 
-Acceda a un ambiente interactivo de Jupyter a través de [*Binder*](https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/master).
+Acceda a un ambiente interactivo de Jupyter a través de [*Binder*](https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main).
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main)
 
 ## Licencia
 
@@ -16,7 +16,7 @@ Acceda a un ambiente interactivo de Jupyter a través de [*Binder*](https://mybi
 
 ## Contribuir y Código de Conducta
 
-Si tienes ideas o te gustaría ver cambios en el proyecto, no dudes en diligenciar un _issue_ o en seguir las instrucciones del archivo '[CONTRIBUTING.md](https://github.com/mantimantilla/Theory-of-Computation-Encryption/blob/master/CONTRIBUTING.md)' para participar de forma activa. Tenemos también un [código de conducta](https://github.com/mantimantilla/Theory-of-Computation-Encryption/blob/master/CODE_OF_CONDUCT.md).
+Si tienes ideas o te gustaría ver cambios en el proyecto, no dudes en diligenciar un _issue_ o en seguir las instrucciones del archivo '[CONTRIBUTING.md](https://github.com/mantimantilla/Theory-of-Computation-Encryption/blob/main/CONTRIBUTING.md)' para participar de forma activa. Tenemos también un [código de conducta](https://github.com/mantimantilla/Theory-of-Computation-Encryption/blob/main/CODE_OF_CONDUCT.md).
 
 ## Enlaces
  * [Universidad de los Andes](https://uniandes.edu.co/)
