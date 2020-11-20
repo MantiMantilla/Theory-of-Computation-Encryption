@@ -2,28 +2,8 @@
 - part: Historia
   chapters:
   - file: Historia/MS Office/MS Office.md
-- part: Matemática
+- part: Matemática y Computación
   chapters:
-  - file: Matematica/Chocolatería Enunciado.ipynb
+  - file: Matematica/Primeros Conceptos.ipynb
     sections:
-      - file: Matematica/Implementacion/Chocolatería.ipynb
-  - file: Matematica/PlaneacionMenus Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/PlaneacionMenus.ipynb
-  - file: Matematica/OptiJuice Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/OptiJuice.ipynb
-  - file: Matematica/Transporte Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/Transporte.ipynb
-      - file: Matematica/Implementacion/Transporte-vis.ipynb
-  - file: Matematica/Inventarios Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/Inventarios.ipynb
-      - file: Matematica/Implementacion/Inventarios-vis.ipynb
-  - file: Matematica/Asignación Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/Asignación.ipynb
-  - file: Matematica/ExtraccionMinera Enunciado.ipynb
-    sections:
-      - file: Matematica/Implementacion/ExtraccionMinera.ipynb
+      - file: Matematica/Implementacion/Primeros Conceptos.ipynb
