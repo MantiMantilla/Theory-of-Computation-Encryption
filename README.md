@@ -4,7 +4,7 @@
 
 Esta página estática es el resultado del proyecto final del curso Intro a la Teoría de la Computación (MATE-2181).
 
-El proyecto consiste en contar con una página web para ilustrar aspectos relevantes de la historia de la criptografía, así como implementaciones interactivas en código de conceptos matemáticos y de computación. Cada sección cuenta con un preambulo y, de ser prudente, una implementación en _Python_ (_Jupyter_) de los conceptos explorados.
+El proyecto consiste en contar con una página web para ilustrar aspectos relevantes de la historia de la criptografía, así como implementaciones interactivas en código de conceptos matemáticos y de computación. Cada sección cuenta con un preambulo, el contenido principal y, de ser prudente, una implementación en _Python_ (_Jupyter_) de los conceptos explorados.
 
 Acceda a la página estática a través de este [enlace](https://mantimantilla.github.io/Theory-of-Computation-Encryption/).
 
