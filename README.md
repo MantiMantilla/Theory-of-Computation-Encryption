@@ -36,7 +36,7 @@ Este proyecto existe gracias al arduo trabajo de los siguientes miembros del equ
  * Camilo Gutierrez
  * Federico Galvez
  
-Agradecemos al profeso John Goodrick por su realimentación a lo largo del desarrollo.
+Agradecemos al profesor, [John Goodrick](https://sites.google.com/view/john-goodrick), por su realimentación a lo largo del desarrollo.
 
 Además, agradecemos a los equipos detrás de los siguientes recursos esenciales para el desarrollo de la página y su contenido.
  * [The Joy of Cryptography](https://web.engr.oregonstate.edu/~rosulekm/crypto/)
