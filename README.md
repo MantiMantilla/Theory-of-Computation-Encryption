@@ -1,8 +1,10 @@
 # Criptografía - Intro. a la Teoría de la Computación
 
+![CI](https://github.com/MantiMantilla/Theory-of-Computation-Encryption/workflows/CI/badge.svg)
+
 Esta página estática es el resultado del proyecto final del curso Intro a la Teoría de la Computación (MATE-2181).
 
-El proyecto consiste en contar con una página web para ilustrar aspectos relevantes de la historia de la criptografía, así como implementaciones interactivas en Jupyter (Python) de conceptos matemáticos y de computación. Cada sección cuenta con un preambulo y, de ser prudente, una implementación en _Python_ de los conceptos explorados.
+El proyecto consiste en contar con una página web para ilustrar aspectos relevantes de la historia de la criptografía, así como implementaciones interactivas en código de conceptos matemáticos y de computación. Cada sección cuenta con un preambulo y, de ser prudente, una implementación en _Python_ (_Jupyter_) de los conceptos explorados.
 
 Acceda a la página estática a través de este [enlace](https://mantimantilla.github.io/Theory-of-Computation-Encryption/).
 
@@ -28,7 +30,7 @@ Todos los errores son atribuibles a los autores. Apreciamos cualquier aporte par
 
 ## Agradecimientos y Reconocimientos
 
-Este proyecto existe gracias al arduo trabajo de los siguientes miembros del equipo
+Este proyecto existe gracias al arduo trabajo de los siguientes miembros del equipo:
 
  * Alejandro Mantilla
  * Camilo Gutierrez
@@ -36,9 +38,8 @@ Este proyecto existe gracias al arduo trabajo de los siguientes miembros del equ
  
 Agradecemos al profeso John Goodrick por su realimentación a lo largo del desarrollo.
 
-Además, agradecemos a los equipos detrás de las siguientes herramientas esenciales para el desarrollo de la página.
+Además, agradecemos a los equipos detrás de los siguientes recursos esenciales para el desarrollo de la página, así como su contenido.
+ * [The Joy of Cryptography](https://web.engr.oregonstate.edu/~rosulekm/crypto/)
  * [Jupyter-Book](https://jupyterbook.org/intro.html)
  * [MySt Markdown](https://myst-parser.readthedocs.io/en/latest/)
- * [Sphinx](https://www.sphinx-doc.org/en/master/)
- * [PuLP](https://coin-or.github.io/pulp/)
  * [Binder](https://mybinder.org/)
