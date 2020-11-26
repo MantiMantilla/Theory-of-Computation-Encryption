@@ -30,7 +30,7 @@ author = 'Alejandro Mantilla, Camilo Gutierrez, Federico Galvez'
 extensions = [
     "nbsphinx",
     "myst_parser",
-    "myst-nb"
+    "myst-nb",
     "sphinx_copybutton",
     "IPython.sphinxext.ipython_console_highlighting",
     "sphinx_thebe",
