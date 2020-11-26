@@ -91,16 +91,17 @@ La función objetivo (1) maximiza las utilidades. Las restricciones (2) y (3) de
 
 **d.** Resuelva el modelo planteado utilizando la librería de PulP en Python. ¿Cuál es la solución óptima del problema?
 
-```{code-cell} ipython3
----
-class: thebe
-tags: [enable-thebe]
----
+````{container} thebe
+```{code-cell} python
+:class: thebe
+:tags: [enable-thebe]
+
 import numpy as np
 np.random.seed(1337)
 data = np.random.randn(2, 100)
 print(data[1, :10])
 ```
+````
 
 ```{thebe-button} Correr el código
 ```
