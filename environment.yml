@@ -6,4 +6,3 @@ channels:
 dependencies:
   - numpy
   - jupytext>=0.16
-  - myst-nb

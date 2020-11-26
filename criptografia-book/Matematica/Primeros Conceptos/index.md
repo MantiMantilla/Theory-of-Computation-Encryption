@@ -30,5 +30,4 @@ Fecha: 30/09/2020
 :hidden:
 
 Implementacion/Primeros Conceptos
-Implementacion/Primeros Conceptos NB
 ```
