@@ -9,7 +9,7 @@ on:
     branches: [ main ]
     paths:
     - 'criptografia-book/**'
-    - '.github/**.yml'
+    - '.github/workflows/**.yml'
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
