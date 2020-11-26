@@ -20,6 +20,7 @@
 project = 'Teoría de la Computación - Criptografía'
 copyright = '2020, Alejandro Mantilla,\n Camilo Gutierrez,\n Federico Galvez\n'
 author = 'Alejandro Mantilla, Camilo Gutierrez, Federico Galvez'
+show_sphinx = False
 
 
 # -- General configuration ---------------------------------------------------
@@ -109,4 +110,5 @@ html_css_files = [
 html_theme_options = {
     "light_logo": "logo_uniandes.png",
     "dark_logo": "logo_uniandes_dark_mode.png",
+
 }
