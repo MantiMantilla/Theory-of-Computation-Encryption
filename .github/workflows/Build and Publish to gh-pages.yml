@@ -28,6 +28,7 @@ jobs:
         sudo apt-get install python3-pip
         pip install sphinx
         pip install myst-parser
+        pip install nbsphinx
         pip install sphinx-copybutton
         pip install ipython
         pip install sphinx-thebe
