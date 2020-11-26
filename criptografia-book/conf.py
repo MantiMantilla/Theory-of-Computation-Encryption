@@ -57,6 +57,7 @@ source_suffix = {
     '.ipynb': 'myst-nb',
     '.myst': 'myst-nb',
 }
+
 jupyter_execute_notebooks = "force"
 
 # Thebe Config
