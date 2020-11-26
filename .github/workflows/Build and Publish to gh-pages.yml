@@ -27,9 +27,9 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install python3-pip
+        sudo apt-get install -y pandoc
         pip install sphinx
         pip install furo
-        pip install pandoc
         pip install myst-parser
         pip install nbsphinx
         pip install sphinx-copybutton
