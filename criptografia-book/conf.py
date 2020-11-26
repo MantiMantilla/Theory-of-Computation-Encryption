@@ -28,11 +28,11 @@ author = 'Alejandro Mantilla, Camilo Gutierrez, Federico Galvez'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    "nbsphinx",
-    "myst_parser",
-    "myst-nb",
+    "myst_nb",
+    # "nbsphinx",
+    # "myst_parser",
     "sphinx_copybutton",
-    "IPython.sphinxext.ipython_console_highlighting",
+    # "IPython.sphinxext.ipython_console_highlighting",
     "sphinx_thebe",
 ]
 
@@ -52,11 +52,11 @@ myst_update_mathjax=False
 
 # MySt - Notebook Config.
 
-source_suffix = {
-    '.rst': 'restructuredtext',
-    '.ipynb': 'myst-nb',
-    '.myst': 'myst-nb',
-}
+# source_suffix = {
+#     '.rst': 'restructuredtext',
+#     '.ipynb': 'myst-nb',
+#     '.myst': 'myst-nb',
+# }
 
 jupyter_execute_notebooks = "force"
 
