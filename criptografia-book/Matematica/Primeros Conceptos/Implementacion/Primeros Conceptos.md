@@ -1,3 +1,14 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: '0.8'
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 # Chocolatería Solución
 
 <sup><b><i style="font-size:13px">Tags: </i></b><i style="font-size:11px">Introducción, Dos variables</i></sup>
