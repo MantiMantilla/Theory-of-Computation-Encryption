@@ -64,7 +64,7 @@ jupyter_execute_notebooks = "force"
 
 thebe_config = {
     "repository_url": "https://github.com/MantiMantilla/Theory-of-Computation-Encryption",
-    "path_to_docs": "criptografia",
+    "path_to_docs": "criptografia-book",
     "repository_branch": "main",
     #"selector": "div.section",
     #"selector_input": "div.input_area",
