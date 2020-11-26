@@ -1,3 +1,7 @@
+---
+hide-toc: true
+---
+
 # Teoría de la Computación - Proyecto Final
 
 Bienvenido al sitio web del proycto final del curso, MATE-2181, Introducción a la Teoría de la Computación. El objetivo de esta página es el de exponer el contenido de la investigación que realizamos, dando lugar a lecturas del contexto histórico, conceptos matemáticos y ejercicios prácticos de los mismos. Para desarrollar los ejercicios usaremos _Python_ como lenguaje de programación.
@@ -7,3 +11,17 @@ En la parte izquierda te encontrarás con algunas secciones que corresponden a l
 Sin más, ¡a estudiar!
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+
+```{toctree}
+:caption: Historia
+:hidden:
+
+Historia/Chapter 1
+```
+
+```{toctree}
+:caption: Matemática y Computación
+:hidden:
+
+Matematica/Primeros Conceptos/index
+```

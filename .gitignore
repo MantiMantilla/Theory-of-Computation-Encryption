@@ -1,4 +1,4 @@
-criptografia/_build
+criptografia-book/_build
 .DS_store
 **/.DS_store
-criptografia/**/.ipynb_checkpoints
+criptografia-book/**/.ipynb_checkpoints

@@ -8,7 +8,7 @@ on:
   push:
     branches: [ main ]
     paths:
-    - 'criptografia/**'
+    - 'criptografia-book/**'
 
 # This job installs dependencies, builds the book, and pushes it to `gh-pages`
 jobs:
@@ -26,17 +26,21 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get install python3-pip
-        pip install jupyter-book
+        pip install sphinx
+        pip install myst-parser
+        pip install sphinx-copybutton
+        pip install ipython
+        pip install sphinx-thebe
         PATH="${PATH}:${HOME}/.local/bin"
 
-    # Build the book
-    - name: Build the book
+    # Build the site
+    - name: Build the site
       run: |
-        jupyter-book build --all ./criptografia
+        sphinx-build criptografia-book criptografia-book/_build
 
-    # Push the book's HTML to github-pages
+    # Push the site's HTML to github-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./criptografia/_build/html/
+        publish_dir: ./criptografia-book/_build/
