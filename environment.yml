@@ -4,7 +4,6 @@ channels:
   - conda-forge
   - anaconda
 dependencies:
-  - matplotlib
-  - pandas
-  - networkx
+  - numpy
   - jupytext>=0.16
+  - myst-nb
