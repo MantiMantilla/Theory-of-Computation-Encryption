@@ -1,0 +1,36 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Introducción a la Criptografía\n",
+    "\n",
+    "## Motivación\n",
+    "\n",
+    "La criptografía es la disciplina que se dedica a codificar y alterar mensajes para que solo los puedan leer ciertos receptores. El siglo XX fue el periodo de desarrollo más importante para la criptografía principalmente por la necesidad de mandar mensajes secretos durante las dos guerras mundiales. El desarrollo de nuevas tecnologías, principalmente la computación hizo necesario nuevas técnicas para encriptar mensajes. La criptografía siempre había necesitado que los dos participantes en la comunicación acordaran una clave de antemano para mandar mensajes cifrados, este tipo de criptografía se llama simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, usando una clave pública, este tipo de criptografía se denomina asimétrica,y la primera vez que descubrieron un método de este tipo fue en 1975. Nuestro proyecto se enfoca en el protocolo de criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -1,0 +1,9 @@
+p {
+    text-align: justify;
+  }
+
+@media (prefers-color-scheme: dark) {
+  .highlight {
+    background: #202020 !important;
+  }
+}
