@@ -28,6 +28,7 @@ jobs:
       run: |
         sudo apt-get install python3-pip
         pip install sphinx
+        pip install furo
         pip install myst-parser
         pip install nbsphinx
         pip install sphinx-copybutton
