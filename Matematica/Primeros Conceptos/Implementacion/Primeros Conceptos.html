@@ -5,7 +5,7 @@
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Chocolatería Solución - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=2ebbf4afcd25620bbf527473">
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=f0732a0ae1bb584bc14a7d6d">
     <link rel="stylesheet" href="../../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
     
@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
-    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=2ebbf4afcd25620bbf527473">
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=f0732a0ae1bb584bc14a7d6d">
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script defer src="../../../_static/jquery.js"></script>
     <script defer src="../../../_static/underscore.js"></script>
@@ -61,7 +61,7 @@
         const thebe_selector_output = ".output"
     </script>
     <script defer async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script defer src="../../../_static/scripts/main.js?state=2ebbf4afcd25620bbf527473"></script></head>
+    <script defer src="../../../_static/scripts/main.js?state=f0732a0ae1bb584bc14a7d6d"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -222,11 +222,21 @@
 <div class="section" id="implementacion">
 <h2>Implementación<a class="headerlink" href="#implementacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>d.</strong> Resuelva el modelo planteado utilizando la librería de PulP en Python. ¿Cuál es la solución óptima del problema?</p>
-<div class="thebe highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="cell tag_enable-thebe docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1337</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.77572065 -0.12322816 -0.53693127  0.16537341  0.89985572  1.25719599
+  1.15406861 -0.6742258   0.88326667 -1.800741  ]
+</pre></div>
+</div>
+</div>
 </div>
 <button class="thebelab-button thebe-launch-button" onclick="initThebe()" title="Correr el código">Correr el código</button></div>
 <div class="section" id="creditos">
