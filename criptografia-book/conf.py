@@ -66,9 +66,9 @@ thebe_config = {
     "repository_url": "https://github.com/MantiMantilla/Theory-of-Computation-Encryption",
     "path_to_docs": "criptografia-book",
     "repository_branch": "main",
-    "selector": "container.thebe",
-    #"selector_input": "div.input_area",
-    #"selector_output": "div.output_area",
+    "selector": "div.section",
+    "selector_input": "div.cell_input",
+    "selector_output": "div.cell_output",
     #"codemirror-theme": "blackboard"  # Doesn't currently work
 }
 
