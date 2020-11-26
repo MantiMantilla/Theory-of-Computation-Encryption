@@ -40,6 +40,6 @@ Agradecemos al profesor, [John Goodrick](https://sites.google.com/view/john-good
 
 Además, agradecemos a los equipos detrás de los siguientes recursos esenciales para el desarrollo de la página y su contenido.
  * [The Joy of Cryptography](https://web.engr.oregonstate.edu/~rosulekm/crypto/)
- * [Jupyter-Book](https://jupyterbook.org/intro.html)
+ * [Sphinx](https://www.sphinx-doc.org/en/master)
  * [MySt Markdown](https://myst-parser.readthedocs.io/en/latest/)
  * [Binder](https://mybinder.org/)

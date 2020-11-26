@@ -2,18 +2,17 @@
 
 Si gustaría contribuir al proyecto, realice un _Fork_ y haga sus cambios sugeridos. Una vez esté satisfecho con el resultado, vuelva a la página del pryecto en GitHub y redacte un _Pull Request_ de su _Fork_ para la rama 'main'. Tenga en cuenta el siguiente procedimiento.
 
-En su computador debe tener un ambiente virtual de _Python_ con los siguientes paquetes y sus dependencias. Recomendamos _Python 3.7_ con _Miniconda_ o _pipenv_. Si su sistema operativo es _Windows_, siga las instrucciones en este [enlace](https://jupyterbook.org/advanced/advanced.html?highlight=windows#working-on-windows) para trabajar con _Jupyter Book_.
+En su computador debe tener un ambiente virtual de _Python_ con los siguientes paquetes y sus dependencias. Recomendamos _Python 3.7_ con _Miniconda_ o _pipenv_.
 
- * Jupyter Book ([Proyecto](https://jupyterbook.org/intro.html)) (Sin paquete de Conda) ([PyPI](https://pypi.org/project/jupyter-book/))
- * Git ([Proyecto](https://git-scm.com/)) ([Conda](https://anaconda.org/anaconda/git)) (Sin paquete de PyPI)
-
+ * Sphinx ([Proyecto](https://www.sphinx-doc.org/en/master/contents.html)) ([Conda](https://anaconda.org/anaconda/sphinx)) ([PyPI](https://pypi.org/project/jupyter-book/))
+ 
 Recomendamos también usar _GitHub Desktop_ para hacer el manejo de versiones de su _Fork_.
 
  * Una vez tenga en su cuenta de _GitHub_ el _Fork_ del proyecto, clonelo a su computador.
- * Edite los archivos que considere prudentes (Tenga en cuenta la documentación de _Jupyter Book_).
+ * Edite los archivos que considere prudentes (Tenga en cuenta la documentación de _Sphinx_ y _Jupyter_).
  * Desde la terminal, active su ambiente virtual de _Python_ y dirijase al directorio donde clonó su proyecto (`$ cd path/to/../Github/Theory-of-Computation-Encryption`).
- * El siguiente comando construirá la página estática a partir de los archivos en el directorio:`jb build criptografia` (si está en _Windows_, revise las instrucciones mencionadas anteriormente de la documentación).
- * Dirijase al directorio en '_build/html' dentro del proyecto y abra en su explorador web el archivo 'index.html'.
+ * El siguiente comando construirá la página estática a partir de los archivos en el directorio:`sphinx-build criptografia-book`.
+ * Dirijase al directorio en './_build/' dentro del proyecto y abra en su explorador web el archivo 'index.html'.
  * Verifique que no se haya roto ningún aspecto del libro y que se vean reflejados sus cambios.
  * Si hay errores o tiene cambios pendientes, realice sus cambios y vuelva a construir el libro para validarlos.
  * Haga _commit_ y _push_ de sus cambios a su repositorio.
