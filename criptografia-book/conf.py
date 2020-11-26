@@ -30,9 +30,10 @@ author = 'Alejandro Mantilla, Camilo Gutierrez, Federico Galvez'
 extensions = [
     "nbsphinx",
     "myst_parser",
+    "myst-nb"
     "sphinx_copybutton",
-    "IPython.sphinxext.ipython_console_highlighting"#,
-    # "sphinx_thebe"
+    "IPython.sphinxext.ipython_console_highlighting",
+    "sphinx_thebe",
 ]
 
 # MySt - Markdown Config.
@@ -49,17 +50,26 @@ myst_amsmath_enable = True
 
 myst_update_mathjax=False
 
+# MySt - Notebook Config.
+
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.ipynb': 'myst-nb',
+    '.myst': 'myst-nb',
+}
+jupyter_execute_notebooks = "force"
+
 # Thebe Config
 
-# thebe_config = {
-#     "repository_url": "https://github.com/MantiMantilla/Theory-of-Computation-Encryption",
-#     "path_to_docs": "criptografia",
-#     "repository_branch": "main",
-#     "selector": "div.section",
-#     "selector_input": "div.input_area",
-#     "selector_output": "div.output_area",
-#     #"codemirror-theme": "blackboard"  # Doesn't currently work
-# }
+thebe_config = {
+    "repository_url": "https://github.com/MantiMantilla/Theory-of-Computation-Encryption",
+    "path_to_docs": "criptografia",
+    "repository_branch": "main",
+    #"selector": "div.section",
+    #"selector_input": "div.input_area",
+    #"selector_output": "div.output_area",
+    #"codemirror-theme": "blackboard"  # Doesn't currently work
+}
 
 
 # Add any paths that contain templates here, relative to this directory.

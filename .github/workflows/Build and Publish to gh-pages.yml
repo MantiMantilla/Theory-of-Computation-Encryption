@@ -31,10 +31,13 @@ jobs:
         pip install sphinx
         pip install furo
         pip install myst-parser
+        pip install myst-nb
+        pip install jupytext
         pip install nbsphinx
         pip install sphinx-copybutton
         pip install ipython
         pip install sphinx-thebe
+        pip install numpy
         PATH="${PATH}:${HOME}/.local/bin"
 
     # Build the site
