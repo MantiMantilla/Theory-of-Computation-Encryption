@@ -6,4 +6,15 @@ p {
   .highlight {
     background: #202020 !important;
   }
+  
+  .cm-keyword {
+    color: #F92672 !important;
+  }
+
+  .cm-variable {
+    color: #FFFFFF !important;
+  }
+
+  
+
 }
