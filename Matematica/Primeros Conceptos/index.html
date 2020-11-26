@@ -5,7 +5,7 @@
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Chocolatería - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../../_static/styles/furo.css?state=94f90efc67eac03b1a4b5a7d">
+      <link rel="stylesheet" href="../../_static/styles/furo.css?state=1c7ae5324e7a9e0c1b79f267">
     <link rel="stylesheet" href="../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../_static/pygments_dark.css">
     
@@ -37,21 +37,31 @@
   
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
-    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?state=94f90efc67eac03b1a4b5a7d">
+    <link rel="stylesheet" href="../../_static/styles/furo-extensions.css?state=1c7ae5324e7a9e0c1b79f267">
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script defer src="../../_static/jquery.js"></script>
     <script defer src="../../_static/underscore.js"></script>
     <script defer src="../../_static/doctools.js"></script>
     <script defer src="../../_static/language_data.js"></script>
+    <script defer src="../../_static/togglebutton.js"></script>
     <script defer src="../../_static/clipboard.min.js"></script>
     <script defer src="../../_static/copybutton.js"></script>
     <script defer src="../../_static/translations.js"></script>
-    <script defer crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script defer async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script defer type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <script defer src="../../_static/scripts/main.js?state=94f90efc67eac03b1a4b5a7d"></script></head>
+    <script defer async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script defer >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script defer async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script defer src="../../_static/scripts/main.js?state=1c7ae5324e7a9e0c1b79f267"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -172,7 +182,25 @@ Fecha: 30/09/2020</p>
 </div>
 </div>
 </div>
-
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MantiMantilla/Theory-of-Computation-Encryption",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "criptografia/Matematica/Primeros Conceptos"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
       </article>
       <footer>
         

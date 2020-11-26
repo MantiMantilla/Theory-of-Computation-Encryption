@@ -5,7 +5,7 @@
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Introducción a la Criptografía - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../_static/styles/furo.css?state=b6fd9157cb3242e132c98102">
+      <link rel="stylesheet" href="../_static/styles/furo.css?state=67e4387044b75f79aa81c358">
     <link rel="stylesheet" href="../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../_static/pygments_dark.css">
     
@@ -37,21 +37,31 @@
   
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=b6fd9157cb3242e132c98102">
+    <link rel="stylesheet" href="../_static/styles/furo-extensions.css?state=67e4387044b75f79aa81c358">
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script defer src="../_static/jquery.js"></script>
     <script defer src="../_static/underscore.js"></script>
     <script defer src="../_static/doctools.js"></script>
     <script defer src="../_static/language_data.js"></script>
+    <script defer src="../_static/togglebutton.js"></script>
     <script defer src="../_static/clipboard.min.js"></script>
     <script defer src="../_static/copybutton.js"></script>
     <script defer src="../_static/translations.js"></script>
-    <script defer crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script defer async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script defer type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <script defer src="../_static/scripts/main.js?state=b6fd9157cb3242e132c98102"></script></head>
+    <script defer async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script defer >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script defer async="async" src="../_static/sphinx-thebe.js"></script>
+    <script defer src="../_static/scripts/main.js?state=67e4387044b75f79aa81c358"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -147,16 +157,32 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="Introducción-a-la-Criptografía">
-<h1>Introducción a la Criptografía<a class="headerlink" href="#Introducción-a-la-Criptografía" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="Motivación">
-<h2>Motivación<a class="headerlink" href="#Motivación" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>La criptografía es la disciplina que se dedica a codificar y alterar mensajes para que solo los puedan leer ciertos receptores. El siglo XX fue el periodo de desarrollo más importante para la criptografía principalmente por la necesidad de mandar mensajes secretos durante las dos guerras mundiales. El desarrollo de nuevas tecnologías, principalmente la computación hizo necesario nuevas técnicas para encriptar mensajes. La criptografía siempre había necesitado que los dos participantes en la
-comunicación acordaran una clave de antemano para mandar mensajes cifrados, este tipo de criptografía se llama simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, usando una clave pública, este tipo de criptografía se denomina asimétrica,y la primera vez que descubrieron un método de este tipo fue en 1975. Nuestro proyecto se enfoca en el protocolo de
-criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.</p>
+        <div class="section" id="introduccion-a-la-criptografia">
+<h1>Introducción a la Criptografía<a class="headerlink" href="#introduccion-a-la-criptografia" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La criptografía es la disciplina que se dedica a codificar y alterar mensajes para que solo los puedan leer ciertos receptores. El siglo XX fue el periodo de desarrollo más importante para la criptografía principalmente por la necesidad de mandar mensajes secretos durante las dos guerras mundiales. El desarrollo de nuevas tecnologías, principalmente la computación hizo necesario nuevas técnicas para encriptar mensajes. La criptografía siempre había necesitado que los dos participantes en la comunicación acordaran una clave de antemano para mandar mensajes cifrados, este tipo de criptografía se llama simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, usando una clave pública, este tipo de criptografía se denomina asimétrica,y la primera vez que descubrieron un método de este tipo fue en 1975. Nuestro proyecto se enfoca en el protocolo de criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.</p>
 </div>
 </div>
-
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MantiMantilla/Theory-of-Computation-Encryption",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "criptografia/Historia"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
       </article>
       <footer>
         
@@ -215,7 +241,7 @@ criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada i
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Introducción a la Criptografía</a><ul>
-<li><a class="reference internal" href="#Motivación">Motivación</a></li>
+<li><a class="reference internal" href="#motivacion">Motivación</a></li>
 </ul>
 </li>
 </ul>

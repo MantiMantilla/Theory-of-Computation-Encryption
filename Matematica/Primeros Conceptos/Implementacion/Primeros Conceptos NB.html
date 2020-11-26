@@ -5,7 +5,7 @@
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
         <title>Chocolatería Solución - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=bf69cb2abee0bba5e11aa7a4">
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=4af99d0da19feed8dcb718f1">
     <link rel="stylesheet" href="../../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
     
@@ -37,21 +37,31 @@
   
   }
 </style><link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="../../../_static/pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
-    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=bf69cb2abee0bba5e11aa7a4">
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=4af99d0da19feed8dcb718f1">
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script defer src="../../../_static/jquery.js"></script>
     <script defer src="../../../_static/underscore.js"></script>
     <script defer src="../../../_static/doctools.js"></script>
     <script defer src="../../../_static/language_data.js"></script>
+    <script defer src="../../../_static/togglebutton.js"></script>
     <script defer src="../../../_static/clipboard.min.js"></script>
     <script defer src="../../../_static/copybutton.js"></script>
     <script defer src="../../../_static/translations.js"></script>
-    <script defer crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script defer >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script defer async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script defer type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
-    <script defer src="../../../_static/scripts/main.js?state=bf69cb2abee0bba5e11aa7a4"></script></head>
+    <script defer async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script defer >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script defer async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script defer src="../../../_static/scripts/main.js?state=4af99d0da19feed8dcb718f1"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -147,292 +157,49 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        
-<style>
-/* CSS for nbsphinx extension */
-
-/* remove conflicting styling from Sphinx themes */
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt *,
-div.nbinput.container div.input_area pre,
-div.nboutput.container div.output_area pre,
-div.nbinput.container div.input_area .highlight,
-div.nboutput.container div.output_area .highlight {
-    border: none;
-    padding: 0;
-    margin: 0;
-    box-shadow: none;
-}
-
-div.nbinput.container > div[class*=highlight],
-div.nboutput.container > div[class*=highlight] {
-    margin: 0;
-}
-
-div.nbinput.container div.prompt *,
-div.nboutput.container div.prompt * {
-    background: none;
-}
-
-div.nboutput.container div.output_area .highlight,
-div.nboutput.container div.output_area pre {
-    background: unset;
-}
-
-div.nboutput.container div.output_area div.highlight {
-    color: unset;  /* override Pygments text color */
-}
-
-/* avoid gaps between output lines */
-div.nboutput.container div[class*=highlight] pre {
-    line-height: normal;
-}
-
-/* input/output containers */
-div.nbinput.container,
-div.nboutput.container {
-    display: -webkit-flex;
-    display: flex;
-    align-items: flex-start;
-    margin: 0;
-    width: 100%;
-}
-@media (max-width: 540px) {
-    div.nbinput.container,
-    div.nboutput.container {
-        flex-direction: column;
-    }
-}
-
-/* input container */
-div.nbinput.container {
-    padding-top: 5px;
-}
-
-/* last container */
-div.nblast.container {
-    padding-bottom: 5px;
-}
-
-/* input prompt */
-div.nbinput.container div.prompt pre {
-    color: #307FC1;
-}
-
-/* output prompt */
-div.nboutput.container div.prompt pre {
-    color: #BF5B3D;
-}
-
-/* all prompts */
-div.nbinput.container div.prompt,
-div.nboutput.container div.prompt {
-    width: 4.5ex;
-    padding-top: 5px;
-    position: relative;
-    user-select: none;
-}
-
-div.nbinput.container div.prompt > div,
-div.nboutput.container div.prompt > div {
-    position: absolute;
-    right: 0;
-    margin-right: 0.3ex;
-}
-
-@media (max-width: 540px) {
-    div.nbinput.container div.prompt,
-    div.nboutput.container div.prompt {
-        width: unset;
-        text-align: left;
-        padding: 0.4em;
-    }
-    div.nboutput.container div.prompt.empty {
-        padding: 0;
-    }
-
-    div.nbinput.container div.prompt > div,
-    div.nboutput.container div.prompt > div {
-        position: unset;
-    }
-}
-
-/* disable scrollbars on prompts */
-div.nbinput.container div.prompt pre,
-div.nboutput.container div.prompt pre {
-    overflow: hidden;
-}
-
-/* input/output area */
-div.nbinput.container div.input_area,
-div.nboutput.container div.output_area {
-    -webkit-flex: 1;
-    flex: 1;
-    overflow: auto;
-}
-@media (max-width: 540px) {
-    div.nbinput.container div.input_area,
-    div.nboutput.container div.output_area {
-        width: 100%;
-    }
-}
-
-/* input area */
-div.nbinput.container div.input_area {
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    /*background: #f5f5f5;*/
-}
-
-/* override MathJax center alignment in output cells */
-div.nboutput.container div[class*=MathJax] {
-    text-align: left !important;
-}
-
-/* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput.container div.math p {
-    text-align: left;
-}
-
-/* standard error */
-div.nboutput.container div.output_area.stderr {
-    background: #fdd;
-}
-
-/* ANSI colors */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-default-inverse-fg { color: #FFFFFF; }
-.ansi-default-inverse-bg { background-color: #000000; }
-
-.ansi-bold { font-weight: bold; }
-.ansi-underline { text-decoration: underline; }
-
-
-div.nbinput.container div.input_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight] > pre,
-div.nboutput.container div.output_area div[class*=highlight].math,
-div.nboutput.container div.output_area.rendered_html,
-div.nboutput.container div.output_area > div.output_javascript,
-div.nboutput.container div.output_area:not(.rendered_html) > img{
-    padding: 5px;
-    margin: 0;
-}
-
-/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
-div.nbinput.container div.input_area > div[class^='highlight'],
-div.nboutput.container div.output_area > div[class^='highlight']{
-    overflow-y: hidden;
-}
-
-/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
-.prompt a.copybtn {
-    display: none;
-}
-
-/* Some additional styling taken form the Jupyter notebook CSS */
-div.rendered_html table {
-  border: none;
-  border-collapse: collapse;
-  border-spacing: 0;
-  color: black;
-  font-size: 12px;
-  table-layout: fixed;
-}
-div.rendered_html thead {
-  border-bottom: 1px solid black;
-  vertical-align: bottom;
-}
-div.rendered_html tr,
-div.rendered_html th,
-div.rendered_html td {
-  text-align: right;
-  vertical-align: middle;
-  padding: 0.5em 0.5em;
-  line-height: normal;
-  white-space: normal;
-  max-width: none;
-  border: none;
-}
-div.rendered_html th {
-  font-weight: bold;
-}
-div.rendered_html tbody tr:nth-child(odd) {
-  background: #f5f5f5;
-}
-div.rendered_html tbody tr:hover {
-  background: rgba(66, 165, 245, 0.2);
-}
-</style>
-<div class="section" id="Chocolatería-Solución">
-<h1>Chocolatería Solución<a class="headerlink" href="#Chocolatería-Solución" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Tags: Introducción, Dos variables</p>
-<div class="section" id="Enunciado">
-<h2>Enunciado<a class="headerlink" href="#Enunciado" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>La chocolatería Perla Caribe es un pequeño emprendimiento que fabrica y comercializa chocolates artesanales con cacao de distintas variedades comprado directamente a agricultores locales. Actualmente producen dos tipos de chocolates: chocolate oscuro y chocolate blanco. Una unidad de cualquier tipo de chocolate pesa 60g. Una unidad de chocolate oscuro se vende a 7,000 COP y una unidad de chocolate blanco se vende a 6,000 COP. Los costos asociados a materia prima, mano de obra y demás costos
-operacionales equivalen a 3,500 COP por cada unidad de chocolate oscuro y 2,000 COP por cada unidad de chocolate blanco.</p>
+        <div class="section" id="chocolateria-solucion">
+<h1>Chocolatería Solución<a class="headerlink" href="#chocolateria-solucion" title="Enlazar permanentemente con este título">¶</a></h1>
+<p><b><i style="font-size:13px">Tags: </i></b><i style="font-size:11px">Introducción, Dos variables</i></p>
+<div class="section" id="enunciado">
+<h2>Enunciado<a class="headerlink" href="#enunciado" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>La chocolatería Perla Caribe es un pequeño emprendimiento que fabrica y comercializa chocolates artesanales con cacao de distintas variedades comprado directamente a agricultores locales. Actualmente producen dos tipos de chocolates: chocolate oscuro y chocolate blanco. Una unidad de cualquier tipo de chocolate pesa 60g. Una unidad de chocolate oscuro se vende a 7,000 COP y una unidad de chocolate blanco se vende a 6,000 COP. Los costos asociados a materia prima, mano de obra y demás costos operacionales equivalen a 3,500 COP por cada unidad de chocolate oscuro y 2,000 COP por cada unidad de chocolate blanco.</p>
 <p>La producción de estos chocolates requiere de dos ingredientes en común: manteca de cacao y azúcar. Por cada unidad de chocolate oscuro se requiere 6g de manteca de cacao y 21 g de azúcar. Por cada unidad de chocolate blanco se requiere 22g de manteca de cacao y 18g de azúcar. Cada semana, la chocolatería Perla Caribe tiene disponible 12kg de manteca de cacao y 20kg de azúcar. La demanda de chocolate oscuro es ilimitada, pero a lo sumo le demandan 315 unidades de chocolate blanco por semana.</p>
 <p>La chocolatería Perla Caribe quiere maximizar su utilidad (ingresos menos costos). Formule un modelo matemático que represente la situación y que les permita cumplir con su objetivo.</p>
 </div>
-<div class="section" id="Formulación">
-<h2>Formulación<a class="headerlink" href="#Formulación" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="formulacion">
+<h2>Formulación<a class="headerlink" href="#formulacion" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>a.</strong> Escriba término a término la(s) variable(s) de decisión que utilizará en el modelo.</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\begin{align*}
+<div class="math-wrapper"><div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 x_1: \text{unidades de chocolate oscuro producidos cada semana} \\
 x_2: \text{unidades de chocolate blanco producidos cada semana}
-\end{align*}</div></div><p><strong>b.</strong> Escriba término a término la(s) restricción(es) lineal(es) y descríbala(s)</p>
+\end{align*}\]</div></div>
+<p><strong>b.</strong> Escriba término a término la(s) restricción(es) lineal(es) y descríbala(s)</p>
 <p>Restricciones asociadas a la disponibilidad de recursos:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\begin{align*}
+<div class="math-wrapper"><div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 6x_1 + 22x_2 \leq 12,000\\
 21x_1 + 18x_2 \leq 20,000
-\end{align*}</div></div><p>Restricciones asociadas a la demanda de productos:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\begin{align*}
+\end{align*}\]</div></div>
+<p>Restricciones asociadas a la demanda de productos:</p>
+<div class="math-wrapper"><div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 x_1 \leq 10,000
-\end{align*}</div></div><p>Restricciones asociadas a tipo de variables:</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\begin{align*}
+\end{align*}\]</div></div>
+<p>Restricciones asociadas a tipo de variables:</p>
+<div class="math-wrapper"><div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 x_1 \geq 0\\
 x_2 \geq 0
-\end{align*}</div></div><p><strong>c.</strong> Escriba término a término la función objetivo que maximiza la utilidad.</p>
+\end{align*}\]</div></div>
+<p><strong>c.</strong> Escriba término a término la función objetivo que maximiza la utilidad.</p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\text{maximizar }  (\$7,000 - \$3,500)x_1 + (\$6,000-\$2,000)x_2\]</div></div>
+\[
+\text{maximizar }  (\$7,000 - \$3,500)x_1 + (\$6,000-\$2,000)x_2
+\]</div></div>
 </div>
-<div class="section" id="Formulación-matemática">
-<h2>Formulación matemática<a class="headerlink" href="#Formulación-matemática" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="formulacion-matematica">
+<h2>Formulación matemática<a class="headerlink" href="#formulacion-matematica" title="Enlazar permanentemente con este título">¶</a></h2>
 <p><strong>Variables de decisión:</strong></p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(x_1\)</span>: unidades de chocolate oscuro producidos cada semana</p></li>
@@ -440,109 +207,67 @@ x_2 \geq 0
 </ul>
 <p><strong>Modelo:</strong></p>
 <div class="math-wrapper"><div class="math notranslate nohighlight">
-\[\text{maximizar }  \$3,500x_1 + \$4,000x_2 \text{ (1)}\]</div></div>
+\[
+\text{maximizar }  \$3,500x_1 + \$4,000x_2 \text{ (1)} 
+\]</div></div>
 <p>Sujeto a,</p>
-<div class="math-wrapper"><div class="math notranslate nohighlight">
-\begin{align*}
+<div class="math-wrapper"><div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
 6x_1 + 22x_2 &amp;\leq 12,000; &amp;(2)\\
 21x_1 + 18x_2 &amp;\leq 20,000; &amp;(3)\\
 x_2 &amp;\leq 10,000; &amp;(4)\\
 x_1 &amp;\geq 0; &amp;(5)\\
 x_2 &amp; \geq 0. &amp;(6)
-\end{align*}</div></div><p>La función objetivo (1) maximiza las utilidades. Las restricciones (2) y (3) describen que se debe respetar la disponibilidad de manteca de cacao y azúcar, respectivamente. La restricción (4) garantiza no se sobrepase la demanda máxima de chocolate blanco. La restricciones (5) y (6) describen la naturaleza de la variables <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, respectivamente.</p>
+\end{align*}\]</div></div>
+<p>La función objetivo (1) maximiza las utilidades. Las restricciones (2) y (3) describen que se debe respetar la disponibilidad de manteca de cacao y azúcar, respectivamente. La restricción (4) garantiza no se sobrepase la demanda máxima de chocolate blanco. La restricciones (5) y (6) describen la naturaleza de la variables <span class="math notranslate nohighlight">\(x_1\)</span> y <span class="math notranslate nohighlight">\(x_2\)</span>, respectivamente.</p>
 </div>
-<div class="section" id="Implementación">
-<h2>Implementación<a class="headerlink" href="#Implementación" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><strong>e.</strong> Resuelva el modelo planteado utilizando la librería de PulP en Python. ¿Cuál es la solución óptima del problema?</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="c1">#se importa la libreria de PulP</span>
-<span class="kn">import</span> <span class="nn">pulp</span> <span class="k">as</span> <span class="nn">lp</span>
-
-<span class="c1">#-------------------------------------</span>
-<span class="c1"># Creación del objeto problema en PuLP</span>
-<span class="c1">#-------------------------------------</span>
-<span class="n">problema</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpProblem</span><span class="p">(</span><span class="s2">"Perla"</span><span class="p">,</span>       <span class="c1">#Nombre</span>
-                        <span class="n">lp</span><span class="o">.</span><span class="n">LpMaximize</span><span class="p">)</span> <span class="c1">#Sentido de la optimización</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1"># Variables de Decisión</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#Unidades de chocolate oscuro producidas cada semana</span>
-<span class="n">x_1</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpVariable</span><span class="p">(</span><span class="s2">"C_oscuro"</span><span class="p">,</span>            <span class="c1">#Nombre</span>
-                    <span class="n">lowBound</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>          <span class="c1">#Cota inferior</span>
-                    <span class="n">upBound</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>        <span class="c1">#Cota superior</span>
-                    <span class="n">cat</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpContinuous</span><span class="p">)</span> <span class="c1">#Tipo de variable</span>
-<span class="c1">#Unidades de chocolate blanco producidas cada semana</span>
-<span class="n">x_2</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpVariable</span><span class="p">(</span><span class="s2">"C_blanco"</span><span class="p">,</span>            <span class="c1">#Nombre</span>
-                    <span class="n">lowBound</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>          <span class="c1">#Cota inferior</span>
-                    <span class="n">upBound</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>        <span class="c1">#Cota superior</span>
-                    <span class="n">cat</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpContinuous</span><span class="p">)</span> <span class="c1">#Tipo de variable</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1"># Función objetivo</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#(1) Crea la expresión de maximización de utilidades</span>
-<span class="n">problema</span> <span class="o">+=</span> <span class="mi">3500</span><span class="o">*</span><span class="n">x_1</span> <span class="o">+</span> <span class="mi">4000</span><span class="o">*</span><span class="n">x_2</span><span class="p">,</span> <span class="s2">"Utilidades Totales"</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1"># Restricciones</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#(2) Respeta la disponibilidad de manteca de cacao</span>
-<span class="n">problema</span> <span class="o">+=</span> <span class="mi">6</span><span class="o">*</span><span class="n">x_1</span> <span class="o">+</span> <span class="mi">22</span><span class="o">*</span><span class="n">x_2</span> <span class="o">&lt;=</span> <span class="mi">12000</span><span class="p">,</span> <span class="s2">"Manteca_cacao"</span>
-<span class="c1">#(3) Respeta la disponibilidad de azucar</span>
-<span class="n">problema</span> <span class="o">+=</span> <span class="mi">21</span><span class="o">*</span><span class="n">x_1</span> <span class="o">+</span><span class="mi">18</span><span class="o">*</span><span class="n">x_2</span> <span class="o">&lt;=</span> <span class="mi">20000</span><span class="p">,</span> <span class="s2">"Azucar"</span>
-<span class="c1">#(4) Garantiza que la producción no sobrepase a lo demandado</span>
-<span class="n">problema</span> <span class="o">+=</span> <span class="n">x_2</span> <span class="o">&lt;=</span> <span class="mi">315</span><span class="p">,</span> <span class="s2">"Demanda"</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1"># Imprimir formato LP</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#Escribe el problema en un archivo con formato LP</span>
-<span class="n">problema</span><span class="o">.</span><span class="n">writeLP</span><span class="p">(</span><span class="s2">"Perla.lp"</span><span class="p">)</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1"># Invocar el optimizador</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#Optimizar el modelo con CBC (default de PuLP)</span>
-<span class="n">problema</span><span class="o">.</span><span class="n">solve</span><span class="p">()</span>
-
-<span class="c1">#-----------------------------</span>
-<span class="c1">#    Imprimir resultados</span>
-<span class="c1">#-----------------------------</span>
-<span class="c1">#Imprimir estado final del optimizador</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Estado (optimizador):"</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">LpStatus</span><span class="p">[</span><span class="n">problema</span><span class="o">.</span><span class="n">status</span><span class="p">],</span><span class="n">end</span><span class="o">=</span><span class="s1">'</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
-<span class="c1">#Imprimir el valor de la función objetivo</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Función objetivo = $"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="n">problema</span><span class="o">.</span><span class="n">objective</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
-<span class="c1">#Imprimir el valor de las variables</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fabricar "</span><span class="p">,</span><span class="n">x_1</span><span class="o">.</span><span class="n">value</span><span class="p">(),</span><span class="s2">"</span><span class="se">\t</span><span class="s2"> unidades de chocolate oscuro"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Fabricar "</span><span class="p">,</span><span class="n">x_2</span><span class="o">.</span><span class="n">value</span><span class="p">(),</span><span class="s2">"</span><span class="se">\t</span><span class="s2"> unidades de chocolate blanco"</span><span class="p">)</span>
+<div class="section" id="implementacion">
+<h2>Implementación<a class="headerlink" href="#implementacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><strong>e.</strong> Resuelva el modelo planteado utilizando la librería de PulP en Python. ¿Cuál es la solución
+óptima del problema?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1337</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="mi">10</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Estado (optimizador): Optimal
-
-Función objetivo = $ 3648333.5
-Fabricar  682.381        unidades de chocolate oscuro
-Fabricar  315.0          unidades de chocolate blanco
-</pre></div></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">{thebe-button}</span> <span class="pre">Correr</span> <span class="pre">el</span> <span class="pre">código.</span></code></p>
-</div>
-<div class="section" id="Créditos">
-<h2>Créditos<a class="headerlink" href="#Créditos" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Equipo Principios de Optimización Instancia: Alfaima Solano Fecha: 30/09/2020</p>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-0.77572065 -0.12322816 -0.53693127  0.16537341  0.89985572  1.25719599
+  1.15406861 -0.6742258   0.88326667 -1.800741  ]
+</pre></div>
 </div>
 </div>
-
+</div>
+<button class="thebelab-button thebe-launch-button" onclick="initThebe()" title="Correr el código.">Correr el código.</button></div>
+<div class="section" id="creditos">
+<h2>Créditos<a class="headerlink" href="#creditos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Equipo Principios de Optimización<br/>
+Instancia: Alfaima Solano<br/>
+Fecha: 30/09/2020</p>
+</div>
+</div>
+<script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "MantiMantilla/Theory-of-Computation-Encryption",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "criptografia/Matematica/Primeros Conceptos/Implementacion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+<script>kernelName = 'python3'</script>
       </article>
       <footer>
         
@@ -593,11 +318,11 @@ Fabricar  315.0          unidades de chocolate blanco
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Chocolatería Solución</a><ul>
-<li><a class="reference internal" href="#Enunciado">Enunciado</a></li>
-<li><a class="reference internal" href="#Formulación">Formulación</a></li>
-<li><a class="reference internal" href="#Formulación-matemática">Formulación matemática</a></li>
-<li><a class="reference internal" href="#Implementación">Implementación</a></li>
-<li><a class="reference internal" href="#Créditos">Créditos</a></li>
+<li><a class="reference internal" href="#enunciado">Enunciado</a></li>
+<li><a class="reference internal" href="#formulacion">Formulación</a></li>
+<li><a class="reference internal" href="#formulacion-matematica">Formulación matemática</a></li>
+<li><a class="reference internal" href="#implementacion">Implementación</a></li>
+<li><a class="reference internal" href="#creditos">Créditos</a></li>
 </ul>
 </li>
 </ul>
