@@ -4,8 +4,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Índice" href="../../../genindex.html" /><link rel="search" title="Búsqueda" href="../../../search.html" /><link rel="prev" title="Chocolatería" href="../index.html" />
 
     <meta name="generator" content="sphinx-3.3.1, furo 2020.11.19.beta18"/>
-        <title>Chocolatería Solución - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=50a4017a4e8f2a5e91e9eb06">
+        <title>Diffie-Hellman - T. de la Computación - Criptografía</title>
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?state=f3675d759ffe88d8403a4490">
     <link rel="stylesheet" href="../../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
     
@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
-    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=50a4017a4e8f2a5e91e9eb06">
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?state=f3675d759ffe88d8403a4490">
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script defer src="../../../_static/jquery.js"></script>
     <script defer src="../../../_static/underscore.js"></script>
@@ -61,7 +61,7 @@
         const thebe_selector_output = "div.cell_output"
     </script>
     <script defer async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script defer src="../../../_static/scripts/main.js?state=50a4017a4e8f2a5e91e9eb06"></script></head>
+    <script defer src="../../../_static/scripts/main.js?state=f3675d759ffe88d8403a4490"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -139,7 +139,7 @@
 <p class="caption"><span class="caption-text">Matemática y Computación</span></p>
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Chocolatería</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Chocolatería Solución</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Diffie-Hellman</a></li>
 </ul>
 </li>
 </ul>
@@ -156,13 +156,13 @@
         <label class="toc-overlay-icon toc-content-icon" for="__toc">
           <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
         </label>
-        <div class="section" id="chocolateria-solucion">
-<h1>Chocolatería Solución<a class="headerlink" href="#chocolateria-solucion" title="Enlazar permanentemente con este título">¶</a></h1>
+        <div class="section" id="diffie-hellman">
+<h1>Diffie-Hellman<a class="headerlink" href="#diffie-hellman" title="Enlazar permanentemente con este título">¶</a></h1>
 <p><b><i style="font-size:13px">Tags: </i></b><i style="font-size:11px">Introducción, Dos variables</i></p>
 <div class="section" id="enunciado">
 <h2>Enunciado<a class="headerlink" href="#enunciado" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>La chocolatería Perla Caribe es un pequeño emprendimiento que fabrica y comercializa chocolates artesanales con cacao de distintas variedades comprado directamente a agricultores locales. Actualmente producen dos tipos de chocolates: chocolate oscuro y chocolate blanco. Una unidad de cualquier tipo de chocolate pesa 60g. Una unidad de chocolate oscuro se vende a 7,000 COP y una unidad de chocolate blanco se vende a 6,000 COP. Los costos asociados a materia prima, mano de obra y demás costos operacionales equivalen a 3,500 COP por cada unidad de chocolate oscuro y 2,000 COP por cada unidad de chocolate blanco.</p>
-<p>La producción de estos chocolates requiere de dos ingredientes en común: manteca de cacao y azúcar. Por cada unidad de chocolate oscuro se requiere 6g de manteca de cacao y 21 g de azúcar. Por cada unidad de chocolate blanco se requiere 22g de manteca de cacao y 18g de azúcar. Cada semana, la chocolatería Perla Caribe tiene disponible 12kg de manteca de cacao y 20kg de azúcar. La demanda de chocolate oscuro es ilimitada, pero a lo sumo le demandan 315 unidades de chocolate blanco por semana.</p>
+<p>La producción de estos chocolates requiere de dos ingredientes en común: manteca de cacao y azúcar. Por cada unidad de chocolate oscuro se requiere 6g de manteca de cacao y 21 g de azúcar. Por cada unidad de chocolate blanco se requiere 22g de manteca de cacao y 18g de azúcar. Cada semana, la chocolatería Perla Caribe tiene disponible 12kg de manteca de cacao y 20kg de azúcar. La demanda de chocolate oscuro es ilimitada, pero a lo sumo le demandan 315 unidades de chocolate blanco por semana. Quiubo.</p>
 <p>La chocolatería Perla Caribe quiere maximizar su utilidad (ingresos menos costos). Formule un modelo matemático que represente la situación y que les permita cumplir con su objetivo.</p>
 </div>
 <div class="section" id="formulacion">
@@ -316,7 +316,7 @@ Fecha: 30/09/2020</p>
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Chocolatería Solución</a><ul>
+<li><a class="reference internal" href="#">Diffie-Hellman</a><ul>
 <li><a class="reference internal" href="#enunciado">Enunciado</a></li>
 <li><a class="reference internal" href="#formulacion">Formulación</a></li>
 <li><a class="reference internal" href="#formulacion-matematica">Formulación matemática</a></li>
