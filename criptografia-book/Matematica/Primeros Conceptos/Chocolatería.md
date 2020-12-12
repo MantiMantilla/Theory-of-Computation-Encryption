@@ -25,14 +25,3 @@ La chocolatería Perla Caribe quiere maximizar su utilidad (ingresos menos costo
 Equipo Principios de Optimización<br>
 Desarrollo: Alfaima Solano<br>
 Fecha: 30/09/2020
-
-```{toctree}
-:hidden:
-
-Implementacion/Primeros Conceptos
-Implementacion/RSA en práctica
-```
-
-```python
-
-```

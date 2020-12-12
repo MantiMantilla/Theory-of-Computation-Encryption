@@ -25,27 +25,34 @@ jobs:
       with:
         python-version: 3.7
 
+    # pip install furo
+    # OR
+    # git clone https://github.com/QuantEcon/quantecon-book-theme.git
+    # cd quantecon-book-theme
+    # python setup.py install
+    # cd ..
+    - name: Install new book theme
+      run: |
+        git clone https://github.com/executablebooks/sphinx-book-theme.git
+        cd sphinx-book-theme
+        python setup.py install
+        cd ..
+    
+    # Install Jupyter Book
     - name: Install dependencies
       run: |
         sudo apt-get install python3-pip
-        sudo apt-get install -y pandoc
-        pip install sphinx
-        pip install furo
-        pip install myst-nb
-        pip install jupytext
-        pip install sphinx-copybutton
-        pip install sphinx-thebe
-        pip install numpy
+        pip install jupyter-book
         PATH="${PATH}:${HOME}/.local/bin"
 
-    # Build the site
-    - name: Build the site
+    # Build the book
+    - name: Build the book
       run: |
-        sphinx-build criptografia-book criptografia-book/_build
+        jupyter-book build --all ./criptografia-book
 
     # Push the site's HTML to github-pages
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
         github_token: ${{ secrets.ACCESS_TOKEN }}
-        publish_dir: ./criptografia-book/_build/
+        publish_dir: ./criptografia-book/_build/html/

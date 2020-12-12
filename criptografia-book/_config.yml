@@ -1,0 +1,31 @@
+# Book settings
+title: Teoría de la Computación - Criptografía
+author: Alejandro Mantilla, Camilo Gutierrez, Federico Galvez
+logo: _static/logo_uniandes.png
+
+repository:
+  url: https://github.com/mantimantilla/Theory-of-Computation-Encryption
+  path_to_book: criptografia-book
+  branch: main
+
+launch_buttons:
+  notebook_interface: "classic"
+  binderhub_url: "https://mybinder.org"
+  thebe: true
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+html:
+  favicon: _static/icon.png
+  home_page_in_navbar: false
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: "" #Removes 'Powered by Jupyter Book' from left navbar.
+
+parse:
+  myst_extended_syntax: true
+
+execute:
+  execute_notebooks: 'off'
