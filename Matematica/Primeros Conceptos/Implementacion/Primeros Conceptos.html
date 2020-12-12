@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js">
   <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Índice" href="../../../genindex.html" /><link rel="search" title="Búsqueda" href="../../../search.html" /><link rel="prev" title="Chocolatería" href="../index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="index" title="Índice" href="../../../genindex.html" /><link rel="search" title="Búsqueda" href="../../../search.html" /><link rel="next" title="RSA en práctica" href="RSA%20en%20pr%C3%A1ctica.html" /><link rel="prev" title="Chocolatería" href="../index.html" />
 
-    <meta name="generator" content="sphinx-3.3.1, furo 2020.11.27.beta19"/>
+    <meta name="generator" content="sphinx-3.3.1, furo 2020.12.09.beta21"/>
         <title>Diffie-Hellman - T. de la Computación - Criptografía</title>
-      <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=4d4607a28768ea509d1701e6fba1bca6c595da19">
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=a3f371badb8538d75df213ccffb17a4f6e8f3ac5">
     <link rel="stylesheet" href="../../../_static/pygments.css">
     <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
     
@@ -61,7 +61,7 @@
         const thebe_selector_output = "div.cell_output"
     </script>
     <script defer async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script defer src="../../../_static/scripts/main.js?digest=1e13a99a5b478789393b59468e7cadf60869ce3f"></script></head>
+    <script defer src="../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></head>
   <body dir="">
     
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -142,6 +142,7 @@
 <ul class="current">
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../index.html">Chocolatería</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Diffie-Hellman</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RSA%20en%20pr%C3%A1ctica.html">RSA en práctica</a></li>
 </ul>
 </li>
 </ul>
@@ -242,7 +243,51 @@ x_2 &amp; \geq 0. &amp;(6)
 </div>
 </div>
 </div>
-<button class="thebelab-button thebe-launch-button" onclick="initThebe()" title="Correr el código.">Correr el código.</button></div>
+</div>
+<div class="section" id="rsa-en-practica">
+<h2>RSA en práctica<a class="headerlink" href="#rsa-en-practica" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Digamos que Andrés tienen algo muy importante que decirle a su amiga Sofía. Para que Andrés le pueda enviar el mensaje secreto, Sofía impleneta un sistema de RSA. Lo primero que hace entonces es seleccionar dos números primos P y Q muy grandes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="o">==</span><span class="n">n</span><span class="p">:</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">i</span>
+                <span class="n">y</span><span class="o">=</span><span class="n">j</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+            <span class="k">break</span>
+        
+    <span class="k">if</span> <span class="n">x</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">isPrime</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Es primo"</span><span class="p">)</span>
+
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">n</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4649
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="section" id="creditos">
 <h2>Créditos<a class="headerlink" href="#creditos" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Equipo Principios de Optimización<br/>
@@ -273,7 +318,15 @@ Fecha: 30/09/2020</p>
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="RSA%20en%20pr%C3%A1ctica.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">RSA en práctica</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="../index.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -323,6 +376,7 @@ Fecha: 30/09/2020</p>
 <li><a class="reference internal" href="#formulacion">Formulación</a></li>
 <li><a class="reference internal" href="#formulacion-matematica">Formulación matemática</a></li>
 <li><a class="reference internal" href="#implementacion">Implementación</a></li>
+<li><a class="reference internal" href="#rsa-en-practica">RSA en práctica</a></li>
 <li><a class="reference internal" href="#creditos">Créditos</a></li>
 </ul>
 </li>

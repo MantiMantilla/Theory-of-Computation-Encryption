@@ -158,8 +158,59 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "```{thebe-button} Correr el código.\n",
-    "```"
+    "## RSA en práctica"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Digamos que Andrés tienen algo muy importante que decirle a su amiga Sofía. Para que Andrés le pueda enviar el mensaje secreto, Sofía impleneta un sistema de RSA. Lo primero que hace entonces es seleccionar dos números primos P y Q muy grandes"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "9491\n"
+     ]
+    }
+   ],
+   "source": [
+    "import random\n",
+    "\n",
+    "def isPrime(n):\n",
+    "    x=0\n",
+    "    y=0\n",
+    "    for i in range(2,n):\n",
+    "        for j in range(i,n):\n",
+    "            if i*j==n:\n",
+    "                x=i\n",
+    "                y=j\n",
+    "                break\n",
+    "        if x!=0:\n",
+    "            break\n",
+    "        \n",
+    "    if x!=0:\n",
+    "        return(False)\n",
+    "    else:\n",
+    "        return(True)\n",
+    "\n",
+    "\n",
+    "if isPrime(12):\n",
+    "    print(\"Es primo\")\n",
+    "\n",
+    "\n",
+    "n = random.randint(1000, 10000)\n",
+    "while not isPrime(n):\n",
+    "    n=random.randint(1000,10000)\n",
+    "\n",
+    "print(n)"
    ]
   },
   {
@@ -172,6 +223,27 @@
     "Instancia: Alfaima Solano<br>\n",
     "Fecha: 30/09/2020"
    ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
   }
  ],
  "metadata": {
