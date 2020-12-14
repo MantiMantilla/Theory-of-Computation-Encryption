@@ -2,12 +2,12 @@
 - part: Historia
   chapters:
   - file: Historia/Chapter 1.ipynb
-- part: Matemática y Computación
+- part: Sistemas Criptográficos
   chapters:
-  - file: Matematica/Diffie-Hellman.md
+  - file: Sistemas Criptográficos/Diffie-Hellman.md
     sections:
-      - file: Matematica/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb
-  - file: Matematica/RSA.md
+      - file: Sistemas Criptográficos/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb
+  - file: Sistemas Criptográficos/RSA.md
     sections:
-      - file: Matematica/RSA/Teoría de RSA.ipynb
-      - file: Matematica/RSA/RSA en práctica.ipynb
+      - file: Sistemas Criptográficos/RSA/Teoría de RSA.ipynb
+      - file: Sistemas Criptográficos/RSA/RSA en práctica.ipynb
