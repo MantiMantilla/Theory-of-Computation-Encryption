@@ -269,8 +269,8 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="n">a</span><span class="o">=</span><span class="mi">100</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">1000</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">1000</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">2000</span>
 
 <span class="n">P</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="k">while</span> <span class="ow">not</span> <span class="n">isPrime</span><span class="p">(</span><span class="n">P</span><span class="p">):</span>
@@ -287,8 +287,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P = 761
-Q = 463
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P = 1753
+Q = 1021
 </pre></div>
 </div>
 </div>
@@ -296,18 +296,18 @@ Q = 463
 <p>Enseguida, Sofía calcula <span class="math notranslate nohighlight">\(N=P\cdot Q\)</span> y elije un exponente <span class="math notranslate nohighlight">\(e\)</span> que tenga un inverso multiplicativo módulo <span class="math notranslate nohighlight">\(\varphi(N)\)</span>, digamos <span class="math notranslate nohighlight">\(d\)</span>. Este número <span class="math notranslate nohighlight">\(d\)</span> es entonces la “clave privada” de Sofía. Ahora que Sofía tiene su clave privada <span class="math notranslate nohighlight">\(d\)</span>, está lista para publicar los números <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(e\)</span> que son la “clave pública” para que Andrés pueda encriptar su mensaje. (El siguiente algorítmo elige un <span class="math notranslate nohighlight">\(e\)</span> al azar y trata de calcular su inverso multiplicativo <span class="math notranslate nohighlight">\(d\)</span> módulo <span class="math notranslate nohighlight">\(\varphi(n)\)</span>. Si lanza error es porque <span class="math notranslate nohighlight">\(e\)</span> no tiene inverso y por lo tanto debería volverse a correr el código hasta encontrar un <span class="math notranslate nohighlight">\(e\)</span> que tenga inverso multiplicativo módulo <span class="math notranslate nohighlight">\(\varphi(n)\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Este algoritmo elije un número e al azar entre un rango de números a y b. </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Este algoritmo elije un número e al azar entre un rango de números alpha y beta. </span>
 <span class="c1">#Luego calcula N=P*Q y el inverso multiplicadivo d de e módulo phi(N).</span>
-<span class="n">a</span><span class="o">=</span><span class="mi">10</span>
-<span class="n">b</span><span class="o">=</span><span class="mi">50</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">alpha</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">beta</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">Q</span>
 
-<span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span> 
-    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span> 
-        <span class="k">return</span> <span class="n">a</span> 
+<span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">):</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">v2</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="n">v1</span>
     <span class="k">else</span><span class="p">:</span> 
-        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="k">b</span>) 
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">v2</span><span class="p">,</span><span class="n">v1</span><span class="o">%</span><span class="k">v2</span>) 
 
 <span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">k</span><span class="o">=</span><span class="mi">0</span>
@@ -322,17 +322,19 @@ Q = 463
 <span class="n">d</span><span class="o">=</span><span class="n">D</span><span class="o">%</span><span class="k">phiN</span>
 
 
-<span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">%</span><span class="k">phiN</span>==1:
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave privada de sofía es el número d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave pública que publica Sofía es el par (N,e) =&quot;</span><span class="p">,</span><span class="s2">&quot;(&quot;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número e =&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot; no tiene inverso multiplicativo módulo phi(n) =&quot;</span><span class="p">,</span><span class="n">phiN</span><span class="p">,</span><span class="s2">&quot;. Vuelva a correr el código para escoger un nuevo número e al azar.&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">%</span><span class="k">phiN</span>==1:
+    <span class="n">e</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">D</span><span class="o">=</span><span class="n">e</span><span class="o">**</span><span class="n">exp</span>
+    <span class="n">d</span><span class="o">=</span><span class="n">D</span><span class="o">%</span><span class="k">phiN</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave privada de sofía es el número d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave pública que publica Sofía es el par (N,e) =&quot;</span><span class="p">,</span><span class="s2">&quot;(&quot;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La clave privada de sofía es el número d = 124591
-La clave pública que publica Sofía es el par (N,e) = ( 352343 , 31 )
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La clave privada de sofía es el número d = 862709
+La clave pública que publica Sofía es el par (N,e) = ( 1789813 , 29 )
 </pre></div>
 </div>
 </div>
@@ -350,8 +352,8 @@ La clave pública que publica Sofía es el par (N,e) = ( 352343 , 31 )
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El mensaje de Andrés para Sofía es (luego de insertar el mensaje oprima ENTER): 2647
-C = 164796
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El mensaje de Andrés para Sofía es (luego de insertar el mensaje oprima ENTER): 34657
+C = 1271845
 </pre></div>
 </div>
 </div>
@@ -368,7 +370,7 @@ C = 164796
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MD = 2647
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MD = 34657
 </pre></div>
 </div>
 </div>
