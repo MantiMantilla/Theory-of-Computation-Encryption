@@ -59,6 +59,7 @@
     <link rel="shortcut icon" href="../../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Teoría de RSA" href="Teor%C3%ADa%20de%20RSA.html" />
     <link rel="prev" title="Diffie-Hellman" href="Primeros%20Conceptos.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -120,6 +121,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      RSA en práctica
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Teor%C3%ADa%20de%20RSA.html">
+     Teoría de RSA
     </a>
    </li>
   </ul>
@@ -233,10 +239,11 @@
                 
   <div class="section" id="rsa-en-practica">
 <h1>RSA en práctica<a class="headerlink" href="#rsa-en-practica" title="Permalink to this headline">¶</a></h1>
-<p>Digamos que Andrés tienen algo muy importante que decirle a su amiga Sofía. Para que Andrés le pueda enviar el mensaje secreto, Sofía impleneta un sistema de RSA. Lo primero que hace entonces es seleccionar dos números primos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> muy grandes.</p>
+<p>Ahora mostramos un ejemplo explícito del uso del RSA con una historia entre dos amigos, Andrés y Sofía.</p>
+<p>Digamos que Andrés tienen algo muy importante que decirle a su amiga Sofía. Para que Andrés le pueda enviar el mensaje secreto, Sofía implementa un sistema de RSA. Lo primero que hace entonces es seleccionar dos números primos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> muy grandes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#En este algorítmo seleccionamos dos primos P y Q al azar entre un rango de números a=100 y b=1000</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#En este algoritmo seleccionamos dos primos P y Q al azar entre un rango de números a y b</span>
 
 <span class="kn">import</span> <span class="nn">random</span>
 
@@ -269,58 +276,61 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P = 677
-Q = 383
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P = 691
+Q = 659
 </pre></div>
 </div>
 </div>
 </div>
-<p>Enseguida, Sofía calcula <span class="math notranslate nohighlight">\(N=P\cdot Q\)</span> y elije un exponente <span class="math notranslate nohighlight">\(e\)</span> que tenga un inverso multiplicativo módulo <span class="math notranslate nohighlight">\(\varphi(N)\)</span>. Si el <span class="math notranslate nohighlight">\(e\)</span> que escogió Sofía no tiene inverso, entonces debe volver a escoger dos primos al azar <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> y repitir el proceso. Si el <span class="math notranslate nohighlight">\(e\)</span> que escogió sí tiene inverso, digamos <span class="math notranslate nohighlight">\(d\)</span>, entonces este número es la “clave privada” de Sofía. Ahora que Sofía tiene su clave privada <span class="math notranslate nohighlight">\(d\)</span>, está lista para publicar los números <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(e\)</span> que son la “clave pública” para que Andrés pueda encriptar su mensaje.</p>
+<p>Enseguida, Sofía calcula <span class="math notranslate nohighlight">\(N=P\cdot Q\)</span> y elije un exponente <span class="math notranslate nohighlight">\(e\)</span> que tenga un inverso multiplicativo módulo <span class="math notranslate nohighlight">\(\varphi(N)\)</span>, digamos <span class="math notranslate nohighlight">\(d\)</span>. Este número <span class="math notranslate nohighlight">\(d\)</span> es entonces la “clave privada” de Sofía. Ahora que Sofía tiene su clave privada <span class="math notranslate nohighlight">\(d\)</span>, está lista para publicar los números <span class="math notranslate nohighlight">\(N\)</span> y <span class="math notranslate nohighlight">\(e\)</span> que son la “clave pública” para que Andrés pueda encriptar su mensaje. (El siguiente algorítmo elige un <span class="math notranslate nohighlight">\(e\)</span> al azar y trata de calcular su inverso multiplicativo <span class="math notranslate nohighlight">\(d\)</span> módulo <span class="math notranslate nohighlight">\(\varphi(n)\)</span>. Si lanza error es porque <span class="math notranslate nohighlight">\(e\)</span> no tiene inverso y por lo tanto debería volverse a correr el código hasta encontrar un <span class="math notranslate nohighlight">\(e\)</span> que tenga inverso multiplicativo módulo <span class="math notranslate nohighlight">\(\varphi(n)\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#En este algorítmo calculamos N=P*Q y el inverso multiplicadivo módulo phi(N) d de e.</span>
-
-<span class="n">c</span><span class="o">=</span><span class="mi">5</span>
-<span class="n">d</span><span class="o">=</span><span class="mi">10</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Este algoritmo elije un número e al azar entre un rango de números a y b. </span>
+<span class="c1">#Luego calcula N=P*Q y el inverso multiplicadivo d de e módulo phi(N).</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">10</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">50</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 <span class="n">N</span> <span class="o">=</span> <span class="n">P</span><span class="o">*</span><span class="n">Q</span>
 
+<span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span> 
+        <span class="k">return</span> <span class="n">a</span> 
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">%</span><span class="k">b</span>) 
 
-<span class="k">def</span> <span class="nf">egcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">g</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">egcd</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="p">(</span><span class="n">b</span> <span class="o">//</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">y</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">modinv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
-    <span class="n">g</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">egcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">g</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;modular inverse does not exist&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">%</span> <span class="n">m</span>
+<span class="k">def</span> <span class="nf">phi</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">k</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">gdc</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="n">k</span>
 
 <span class="n">phiN</span><span class="o">=</span><span class="p">(</span><span class="n">P</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Q</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">d</span><span class="o">=</span><span class="n">modinv</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phiN</span><span class="p">)</span>
+<span class="n">exp</span><span class="o">=</span><span class="p">(</span><span class="n">phi</span><span class="p">(</span><span class="n">phiN</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>
+<span class="n">D</span><span class="o">=</span><span class="n">e</span><span class="o">**</span><span class="n">exp</span>
+<span class="n">d</span><span class="o">=</span><span class="n">D</span><span class="o">%</span><span class="k">phiN</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave privada de sofía es el número d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave pública que publica Sofía es el par (N,e) =&quot;</span><span class="p">,</span><span class="s2">&quot;(&quot;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">*</span><span class="n">d</span><span class="p">)</span><span class="o">%</span><span class="k">phiN</span>==1:
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave privada de sofía es el número d =&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;La clave pública que publica Sofía es el par (N,e) =&quot;</span><span class="p">,</span><span class="s2">&quot;(&quot;</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="s2">&quot;,&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot;)&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;El número e =&quot;</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="s2">&quot; no tiene inverso multiplicativo módulo phi(n) =&quot;</span><span class="p">,</span><span class="n">phiN</span><span class="p">,</span><span class="s2">&quot;. Vuelva a correr el código para escoger un nuevo número e al azar.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La clave privada de sofía es el número d = 110671
-La clave pública que publica Sofía es el par (N,e) = ( 259291 , 7 )
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>La clave privada de sofía es el número d = 119479
+La clave pública que publica Sofía es el par (N,e) = ( 455369 , 19 )
 </pre></div>
 </div>
 </div>
 </div>
-<p>Con esta información, Andrés codifica el mensaje que le quiere enviar a Sofía. En este caso, el mensaje que le quiere enviar es “te amo”. Supongamos que Andrés y Sofía ya habían hablado previamente sobre su relación y que Sofía había decidido darle una oportunidad a Andrés para que le dijera lo que realmente sentía. Para esto, Sofía le dio entonces un tiempo Andrés para que pensara y le dio la siguiente lista con códigos para cuando Andrés quisiera responderle: 1=si, 2=no, 3=te, 4=quiero, 5=amo, 6=ver. El mensaje de Andrés codificado con esta lista sería entonces <span class="math notranslate nohighlight">\(M=35\)</span>. Así, Andrés procede a encriptar su mensaje con ayuda de la clave pública de Sofía <span class="math notranslate nohighlight">\((N,e)\)</span> efectuando la siguiente operación <span class="math notranslate nohighlight">\(C=M^e\)</span>(mod <span class="math notranslate nohighlight">\(N\)</span>) y publica su mensaje encriptado <span class="math notranslate nohighlight">\(C\)</span>. (El lector también puede escoger un mensaje diferente, codificarlo con la lista dada y pasárselo al siguiente método. Lo único que tiene que verificar es que su mensaje no sea mayor que <span class="math notranslate nohighlight">\(N\)</span>)</p>
+<p>Con esta información, Andrés codifica el mensaje que le quiere enviar a Sofía. En este caso, el mensaje que le quiere enviar es “te amo”. Supongamos que Andrés y Sofía ya habían hablado previamente sobre su relación y que Sofía había decidido darle una oportunidad a Andrés para que le dijera lo que realmente sentía. Para esto, Sofía le dio entonces un tiempo Andrés para que pensara y le dio la siguiente lista con códigos para cuando Andrés quisiera responderle: 1=si, 2=no, 3=te, 4=quiero, 5=amo, 6=ver. El mensaje de Andrés codificado con esta lista sería entonces <span class="math notranslate nohighlight">\(M=35\)</span>. Así, Andrés procede a encriptar su mensaje con ayuda de la clave pública de Sofía <span class="math notranslate nohighlight">\((N,e)\)</span> efectuando la siguiente operación <span class="math notranslate nohighlight">\(C=M^e\)</span>(mod <span class="math notranslate nohighlight">\(N\)</span>) y publica su mensaje encriptado <span class="math notranslate nohighlight">\(C\)</span>. (El lector también puede escoger un mensaje diferente, codificarlo con la lista dada y pasárselo al siguiente método. Lo único que tiene que verificar es que su mensaje no sea mayor que <span class="math notranslate nohighlight">\(N\)</span> y que sea distinto a los dos primos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span>)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#En este método calculamos el mensaje público encriptado de Andrés.</span>
-
-<span class="n">M</span><span class="o">=</span><span class="mi">35</span> 
+<span class="n">M</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;El mensaje de Andrés para Sofía es (luego de insertar el mensaje oprima ENTER): &quot;</span><span class="p">))</span>
 <span class="n">exp</span><span class="o">=</span><span class="n">M</span><span class="o">**</span><span class="n">e</span>
 
 <span class="n">C</span><span class="o">=</span><span class="n">exp</span><span class="o">%</span><span class="k">N</span>
@@ -329,12 +339,13 @@ La clave pública que publica Sofía es el par (N,e) = ( 259291 , 7 )
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C = 124590
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>El mensaje de Andrés para Sofía es (luego de insertar el mensaje oprima ENTER): 35
+C = 137002
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finalmente, Sofía recibe el mensaje encriptado de Andrés y obtiene el mensaje descifrado con ayuda de su clave privada <span class="math notranslate nohighlight">\(d\)</span> calculando <span class="math notranslate nohighlight">\(MD=C^d\)</span> (mod<span class="math notranslate nohighlight">\(N\)</span>)</p>
+<p>Finalmente, Sofía recibe el mensaje encriptado de Andrés <span class="math notranslate nohighlight">\(C\)</span> y obtiene el mensaje descifrado con ayuda de su clave privada <span class="math notranslate nohighlight">\(d\)</span> calculando <span class="math notranslate nohighlight">\(MD=C^d \mod N\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#En este método desciframos el mensaje encriptado de Andrés</span>
@@ -380,6 +391,7 @@ La clave pública que publica Sofía es el par (N,e) = ( 259291 , 7 )
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Primeros%20Conceptos.html" title="previous page">Diffie-Hellman</a>
+    <a class='right-next' id="next-link" href="Teor%C3%ADa%20de%20RSA.html" title="next page">Teoría de RSA</a>
 
         </div>
         

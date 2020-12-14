@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teoría de RSA &#8212; Teoría de la Computación - Criptografía</title>
+    
+  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.da26317cf37e5c4af2fa3e6253912353.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="RSA en práctica" href="RSA%20en%20pr%C3%A1ctica.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  <img src="../../../_static/logo_uniandes.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Teoría de la Computación - Criptografía</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <p class="caption collapsible-parent">
+ <span class="caption-text">
+  Historia
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Historia/Chapter%201.html">
+   Introducción a la Criptografía
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Matemática y Computación
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../Chocolater%C3%ADa.html">
+   Chocolatería
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Primeros%20Conceptos.html">
+     Diffie-Hellman
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="RSA%20en%20pr%C3%A1ctica.html">
+     RSA en práctica
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Teoría de RSA
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/Matematica/Primeros Conceptos/Implementacion/Teoría de RSA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption/issues/new?title=Issue%20on%20page%20%2FMatematica/Primeros Conceptos/Implementacion/Teoría de RSA.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main?urlpath=tree/criptografia-book/Matematica/Primeros Conceptos/Implementacion/Teoría de RSA.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="teoria-de-rsa">
+<h1>Teoría de RSA<a class="headerlink" href="#teoria-de-rsa" title="Permalink to this headline">¶</a></h1>
+<p>Los aspectos teóricos que están detrás del sistema RSA son varios resultados de teoría de números que se explican a continuación.</p>
+<p><strong>Definición</strong>: La función <span class="math notranslate nohighlight">\(\varphi:\mathbb{Z}^+\longrightarrow\mathbb{N}\)</span> denominada
+<span class="math notranslate nohighlight">\(\varphi\)</span> de Euler, se define para un número <span class="math notranslate nohighlight">\(n\)</span> entero positivo de la siguiente forma:</p>
+<div class="math notranslate nohighlight">
+\[\varphi(n)=\lvert\lbrace k\in\mathbb{Z}^+ \mid k\leq n , MCD(k,n)=1 \rbrace \rvert,\]</div>
+<p>es decir, <span class="math notranslate nohighlight">\(\varphi\left (n\right )\)</span> indica la cantidad de primos relativos menores o iguales a <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>Esta función está presente en varios resultados importantes de la teoría de números y algunas de sus propiedades se usan en la implementación del RSA. En primer lugar, de su definición es claro que <span class="math notranslate nohighlight">\(\varphi(p)=p-1 \)</span> si <span class="math notranslate nohighlight">\(p\)</span> es un primo. Por otro lado, un resultado muy útil y no tan obvio de ésta función es que es multiplicativa. Esto quiere decir que para cualesquiera dos números <span class="math notranslate nohighlight">\(m\)</span> y <span class="math notranslate nohighlight">\(n\)</span> primos relativos se tiene <span class="math notranslate nohighlight">\(\varphi(mn)=\varphi(m)\varphi(n)\)</span>. Existen distintas formas de demostrar este hecho, como por ejemplo usando técnicas de teoría de números como la inversión de Möbius. Otra forma más avanzada de demostrar esta propiedad es que es un corolario del teorema chino de los residuos de la teoría de anillos (Esto puede verse en la página 265 de la tercera edición del libro de álgebra Abstracta de Dummit y Foote).
+Finalmente, es importante el siguiente teorema:</p>
+<p><strong>Teorema de Euler-Fermat</strong>:</p>
+<p>Sean <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(n\)</span> enteros positivos, primos relativos, entonces se tiene la congruencia <span class="math notranslate nohighlight">\(n^{\varphi(a)} \equiv 1 \mod a\)</span>.</p>
+<p><strong>Demostración</strong>: Sea <span class="math notranslate nohighlight">\(A\)</span> el conjunto canónico de residuos módulo <span class="math notranslate nohighlight">\( a \)</span> (es decir el conjunto de los primos relativos menores o iguales de <span class="math notranslate nohighlight">\( a \)</span>), entonces por definición <span class="math notranslate nohighlight">\(A\)</span> tiene <span class="math notranslate nohighlight">\(\varphi(a)\)</span> elementos. Considere el conjunto <span class="math notranslate nohighlight">\(B=\lbrace xn \mid x\in A\rbrace \)</span>. Como <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(n\)</span> son coprimos, <span class="math notranslate nohighlight">\(B\)</span> es un conjunto reducido de residuos módulo <span class="math notranslate nohighlight">\(a\)</span>. Si <span class="math notranslate nohighlight">\(u\)</span> es el producto de todos los elementos de <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(v\)</span> el producto de todos los elementos de <span class="math notranslate nohighlight">\(B\)</span>, entonces  <span class="math notranslate nohighlight">\( un^{\varphi(a)}=v \)</span> y <span class="math notranslate nohighlight">\(\ v\equiv u \mod a\)</span>, entonces <span class="math notranslate nohighlight">\( un^{\varphi(a)}\equiv u \mod a \)</span> y como <span class="math notranslate nohighlight">\(u\)</span> es primo relativo con <span class="math notranslate nohighlight">\(a\)</span>, pues es producto de primos relativos con <span class="math notranslate nohighlight">\(a\)</span> , entonces tenemos  <span class="math notranslate nohighlight">\(n^{\varphi(a))} \equiv 1  \mod a\)</span>. <span class="math notranslate nohighlight">\(\blacksquare\)</span></p>
+<p>Este teorema es una generalización del pequeño teorema de Fermat, pues este último se obtiene tomando <span class="math notranslate nohighlight">\(a\)</span> primo.</p>
+<p>Ahora veamos cómo se aplican estos resultados al RSA. Digamos que un banco quiere recibir una información confidencial de un cliente. El banco primero elije dos primos muy grandes <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> y el primer número de la clave pública sería <span class="math notranslate nohighlight">\(N=P\cdot Q\)</span>. Ahora que el banco conoce <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> le es posible calcular fácilmente <span class="math notranslate nohighlight">\(\varphi(N)\)</span>, pues <span class="math notranslate nohighlight">\(\varphi(N)= \varphi(Q\cdot P)=\varphi(Q)\cdot\varphi(P)=(Q-1)(P-1)\)</span>. Luego, el banco escoge un <span class="math notranslate nohighlight">\(e\)</span> que tenga inverso multiplicativo <span class="math notranslate nohighlight">\(d\)</span> módulo <span class="math notranslate nohighlight">\(\varphi(N)\)</span>. En la práctica, escoger un <span class="math notranslate nohighlight">\(e\)</span> menor que <span class="math notranslate nohighlight">\(\varphi(N)\)</span> con inverso multiplicativo es enteramente posible ya que los primos que tomó el banco son lo suficientemente grandes como para que <span class="math notranslate nohighlight">\(\varphi(N)\)</span> tenga varios primos relativos menores, es decir, para que <span class="math notranslate nohighlight">\(\varphi(\varphi(N))\geqslant1\)</span>. Un método para calcular el inverso multiplicativo <span class="math notranslate nohighlight">\(d\)</span> de <span class="math notranslate nohighlight">\(e\)</span> es calcular <span class="math notranslate nohighlight">\(e^{(\varphi(\varphi(N)))-1}\)</span> módulo <span class="math notranslate nohighlight">\(\varphi(N)\)</span> por el teorema de Euler-Fermat. Este número <span class="math notranslate nohighlight">\(d\)</span> es lo que correspondería a la “clave privada” del banco, el cual es casi imposible de descifrar porque para hacerlo sería necesario conocer los primos <span class="math notranslate nohighlight">\(P\)</span> y <span class="math notranslate nohighlight">\(Q\)</span> que factorizan a <span class="math notranslate nohighlight">\(N\)</span>, para así calcular <span class="math notranslate nohighlight">\(\varphi(N)\)</span> (tarea que para <span class="math notranslate nohighlight">\(N\)</span>’s muy grandes es casi imposible). Así, el banco finalmente publica el par de números <span class="math notranslate nohighlight">\((N,e)\)</span> que vendrían a ser lo que se denomina la “clave pública” del banco.</p>
+<p>Digamos ahora que el cliente recopila la información que le quiere enviar al banco y la codifica en un mensaje <span class="math notranslate nohighlight">\(M\)</span> (aquí el sistema de codificación debe ser tal que no admita mensajes iguales a <span class="math notranslate nohighlight">\(P\)</span>, <span class="math notranslate nohighlight">\(Q\)</span> ni mayores que <span class="math notranslate nohighlight">\(N\)</span>). Luego, para enviar este mensaje de manera secreta debe encriptarlo con la “clave pública” del banco, a saber, el par <span class="math notranslate nohighlight">\((N,e)\)</span>. Así, el mensaje encriptado del cliente sería <span class="math notranslate nohighlight">\(C= M^{e} \)</span> módulo <span class="math notranslate nohighlight">\( N \)</span> y una vez hecha esta operación lo publica para que el banco pueda acceder a él.</p>
+<p>El banco es el único que conoce <span class="math notranslate nohighlight">\(d\)</span>, su “clave privada”, y entonces puede usarla para descifrar el mensaje encriptado <span class="math notranslate nohighlight">\(C\)</span> del cliente. Para esto, calcula
+<span class="math notranslate nohighlight">\( C^{d}\)</span> módulo <span class="math notranslate nohighlight">\( N\)</span>. Esto funciona por el Teorema Euler-Fermat, pues <span class="math notranslate nohighlight">\(M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son primos relativos porque <span class="math notranslate nohighlight">\(M\)</span> es distinto a <span class="math notranslate nohighlight">\( P \)</span>, <span class="math notranslate nohighlight">\( Q \)</span> y <span class="math notranslate nohighlight">\( N\)</span>, y como <span class="math notranslate nohighlight">\( e\cdot d\equiv 1 \mod \varphi(N) \)</span>, existe un entero <span class="math notranslate nohighlight">\( k \)</span> tal que <span class="math notranslate nohighlight">\( e\cdot d=\varphi(N)k+1  \)</span> y por lo tanto se tiene</p>
+<p>$<span class="math notranslate nohighlight">\( C^{d}\equiv (M^{e})^{d} \equiv M^{ed} \equiv M^{\varphi(N)k+1} \equiv MM^{\varphi(N)k} \equiv M(M^{\varphi(N)})^k \equiv M1^k \equiv M \mod N \)</span>$.</p>
+<p>El teorema Euler-Fermat se usa en el paso <span class="math notranslate nohighlight">\( M(M^{\varphi(N)})^k \equiv M1^k\)</span>. De esta manera, el banco logra recobrar el mensaje completo del cliente. Aquí se evidencia la importancia de que <span class="math notranslate nohighlight">\(M\)</span> sea menor o igual a <span class="math notranslate nohighlight">\(N\)</span>, pues de lo contrario cuando el banco calcula <span class="math notranslate nohighlight">\(C^d \mod N\)</span> obtendría <span class="math notranslate nohighlight">\(M \mod N\)</span>, el cual es distinto al mensaje original del cliente <span class="math notranslate nohighlight">\(M\)</span> dado que <span class="math notranslate nohighlight">\(M&gt;N\)</span>.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "mantimantilla/Theory-of-Computation-Encryption",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Matematica/Primeros Conceptos/Implementacion"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="RSA%20en%20pr%C3%A1ctica.html" title="previous page">RSA en práctica</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Alejandro Mantilla, Camilo Gutierrez, Federico Galvez<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
