@@ -41,7 +41,7 @@ jobs:
     # Install Jupyter Book
     - name: Install dependencies
       run: |
-        git clone https://github.com/executablebooks/juyter-book.git
+        git clone https://github.com/executablebooks/jupyter-book.git
         cd jupyter-book
         python setup.py install
         cd ..
