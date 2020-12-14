@@ -4,8 +4,10 @@
   - file: Historia/Chapter 1.ipynb
 - part: Matemática y Computación
   chapters:
-  - file: Matematica/Primeros Conceptos/Chocolatería.md
-    sections:
+  - file: Matematica/Primeros Conceptos/Diffie-Hellman.md
+  sections:
       - file: Matematica/Primeros Conceptos/Implementacion/Primeros Conceptos.ipynb
-      - file: Matematica/Primeros Conceptos/Implementacion/RSA en práctica.ipynb
+  - file: Matematica/Primeros Conceptos/RSA.md
+    sections:
       - file: Matematica/Primeros Conceptos/Implementacion/Teoría de RSA.ipynb
+      - file: Matematica/Primeros Conceptos/Implementacion/RSA en práctica.ipynb
