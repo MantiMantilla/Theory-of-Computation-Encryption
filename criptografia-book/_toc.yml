@@ -8,3 +8,4 @@
     sections:
       - file: Matematica/Primeros Conceptos/Implementacion/Primeros Conceptos.ipynb
       - file: Matematica/Primeros Conceptos/Implementacion/RSA en práctica.ipynb
+      - file: Matematica/Primeros Conceptos/Implementacion/Teoría de RSA.ipynb
