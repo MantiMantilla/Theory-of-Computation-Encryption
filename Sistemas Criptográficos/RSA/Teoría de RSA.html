@@ -60,7 +60,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="RSA en práctica" href="RSA%20en%20pr%C3%A1ctica.html" />
-    <link rel="prev" title="Diffie-Hellman" href="../Diffie-Hellman/Implementacion/Primeros%20Conceptos.html" />
+    <link rel="prev" title="Chocolatería" href="Ilustraci%C3%B3n%20RSA.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -104,10 +104,10 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Sistemas Criptográficos
+  Diffie-Hellman
  </span>
 </p>
-<ul class="current nav sidenav_l1">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../Diffie-Hellman/Chocolater%C3%ADa.html">
    Chocolatería
@@ -122,19 +122,27 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 current active collapsible-parent">
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RSA
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Ilustraci%C3%B3n%20RSA.html">
+   Chocolatería
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Teoría de RSA
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="RSA%20en%20pr%C3%A1ctica.html">
-     RSA en práctica
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="RSA%20en%20pr%C3%A1ctica.html">
+   RSA en práctica
+  </a>
  </li>
 </ul>
 
@@ -266,8 +274,6 @@ Finalmente, es importante el siguiente teorema:</p>
     C^{d}\equiv (M^{e})^{d} \equiv M^{ed} \equiv M^{\varphi(N)k+1} \equiv MM^{\varphi(N)k} \equiv M(M^{\varphi(N)})^k \equiv M1^k \equiv M \mod N.
 \]</div>
 <p>El teorema Euler-Fermat se usa en el paso <span class="math notranslate nohighlight">\( M(M^{\varphi(N)})^k \equiv M1^k\)</span>. De esta manera, el banco logra recobrar el mensaje completo del cliente. Aquí se evidencia la importancia de que <span class="math notranslate nohighlight">\(M\)</span> sea menor o igual a <span class="math notranslate nohighlight">\(N\)</span>, pues de lo contrario cuando el banco calcula <span class="math notranslate nohighlight">\(C^d \mod N\)</span> obtendría <span class="math notranslate nohighlight">\(M \mod N\)</span>, el cual es distinto al mensaje original del cliente <span class="math notranslate nohighlight">\(M\)</span> dado que <span class="math notranslate nohighlight">\(M&gt;N\)</span>.</p>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -295,7 +301,7 @@ Finalmente, es importante el siguiente teorema:</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../Diffie-Hellman/Implementacion/Primeros%20Conceptos.html" title="previous page">Diffie-Hellman</a>
+    <a class='left-prev' id="prev-link" href="Ilustraci%C3%B3n%20RSA.html" title="previous page">Chocolatería</a>
     <a class='right-next' id="next-link" href="RSA%20en%20pr%C3%A1ctica.html" title="next page">RSA en práctica</a>
 
         </div>

@@ -104,7 +104,7 @@
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
-  Sistemas Criptográficos
+  Diffie-Hellman
  </span>
 </p>
 <ul class="nav sidenav_l1">
@@ -122,19 +122,27 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  RSA
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sistemas%20Criptogr%C3%A1ficos/RSA/Ilustraci%C3%B3n%20RSA.html">
+   Chocolatería
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../Sistemas%20Criptogr%C3%A1ficos/RSA/Teor%C3%ADa%20de%20RSA.html">
    Teoría de RSA
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../Sistemas%20Criptogr%C3%A1ficos/RSA/RSA%20en%20pr%C3%A1ctica.html">
-     RSA en práctica
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Sistemas%20Criptogr%C3%A1ficos/RSA/RSA%20en%20pr%C3%A1ctica.html">
+   RSA en práctica
+  </a>
  </li>
 </ul>
 
@@ -243,6 +251,11 @@
    Motivación
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#breve-historia-de-la-criptografia">
+   Breve historia de la criptografía
+  </a>
+ </li>
 </ul>
 
         </nav>
@@ -260,6 +273,14 @@
 <div class="section" id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
 <p>La criptografía es la disciplina que se dedica a codificar y alterar mensajes para que solo los puedan leer ciertos receptores. El siglo XX fue el periodo de desarrollo más importante para la criptografía principalmente por la necesidad de mandar mensajes secretos durante las dos guerras mundiales. El desarrollo de nuevas tecnologías, principalmente la computación hizo necesario nuevas técnicas para encriptar mensajes. La criptografía siempre había necesitado que los dos participantes en la comunicación acordaran una clave de antemano para mandar mensajes cifrados, este tipo de criptografía se llama simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, usando una clave pública, este tipo de criptografía se denomina asimétrica,y la primera vez que descubrieron un método de este tipo fue en 1975. Nuestro proyecto se enfoca en el protocolo de criptografía de Diffie-Hellman que usa clave pública, en Diffie-Hellman cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.</p>
+</div>
+<div class="section" id="breve-historia-de-la-criptografia">
+<h2>Breve historia de la criptografía<a class="headerlink" href="#breve-historia-de-la-criptografia" title="Permalink to this headline">¶</a></h2>
+<p>La criptología se dedica a estudiar los lenguajes secretos, es decir información que ha sido oculta intencionalmente a ciertos individuos.  La criptografía es la rama de esta disciplina que se dedica a investigar técnicas para proteger la información, codificando mensajes y haciéndolos comprensibles solo a ciertos receptores.</p>
+<p>En la historia de la humanidad han existido muchas técnicas para ocultar mensajes, pero el momento clave para el desarrollo de la criptografía fue el siglo XX, principalmente por la necesidad de mandar mensajes que no fueran a ser inteligibles para las naciones enemigas durante los conflictos bélicos, como la segunda guerra mundial, en la que fue muy conocido el trabajo del matemático Alan Turing para descifrar los mensajes de la máquina Enigma usada por los alemanes para ocultar la información a sus enemigos.</p>
+<p>El amplio desarrollo que tuvo la computación durante este siglo hizo necesario la búsqueda y el perfeccionamiento de las técnicas de criptografía. La criptografía siempre necesitó que los involucrados en la comunicación acordaran una clave de antemano para mandar mensajes cifrados, esta clase de criptografía se denomina simétrica. Uno de los problemas principales de esta disciplina era encontrar una forma de mandar mensajes sin que los involucrados en la comunicación tuvieran que haberse encontrado antes, generalmente usando dos claves, una pública y una privada, las dos pertenecientes al destinatario del mensaje. Uno de los primeros sistemas criptográficos que implementaron este mecanismo en su funcionamiento fue el de Diffie-Hellman, publicado por Whitfield Diffie y Martin Hellman en el año 1976, en este protocolo cada interlocutor escoge un número público y un número secreto, la seguridad de este método se basa en que descifrar los mensajes para alguien que no conozca los números secretos es igual de difícil que calcular un logaritmo discreto, un problema de una alta complejidad computacional en varios grupos.</p>
+<p>Otros sistemas criptográficos de clave pública fueron publicados posteriormente. El Merkle–Hellman knapsack publicado en el año 1978, pero que quedo obsoleto en el año 1984 cuando se descubrió un algoritmo en tiempo polinomial que podía romperlo. Por otra parte, en 1979 se público el sistema de encriptación más utilizado: el RSA (Rivest–Shamir–Adleman). La seguridad de este algoritmo se basa en la dificultad de factorizar un número que es el producto de dos primos muy grandes.</p>
+<p>En la actualidad todos estos algoritmos funcionan constantemente en tecnologías de uso cotidiano, como los teléfonos móviles y el correo electrónico, y son de suma importancia para mantener la seguridad de la información.</p>
 </div>
 </div>
 
