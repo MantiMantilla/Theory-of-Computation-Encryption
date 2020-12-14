@@ -4,10 +4,9 @@
   - file: Historia/Chapter 1.ipynb
 - part: Sistemas Criptográficos
   chapters:
-  - file: Sistemas Criptográficos/Diffie-Hellman.md
+  - file: Sistemas Criptográficos/Diffie-Hellman/Chocolatería.md
     sections:
       - file: Sistemas Criptográficos/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb
-  - file: Sistemas Criptográficos/RSA.md
+  - file: Sistemas Criptográficos/RSA/Teoría de RSA.ipynb
     sections:
-      - file: Sistemas Criptográficos/RSA/Teoría de RSA.ipynb
       - file: Sistemas Criptográficos/RSA/RSA en práctica.ipynb
