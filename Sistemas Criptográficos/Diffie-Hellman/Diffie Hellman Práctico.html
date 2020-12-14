@@ -5,48 +5,48 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diffie-Hellman &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Diffie - Hellman: Ilustración &#8212; Teoría de la Computación - Criptografía</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
     
   <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
   <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     
       
   <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
   <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.da26317cf37e5c4af2fa3e6253912353.css" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/text-align.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.da26317cf37e5c4af2fa3e6253912353.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/text-align.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/language_data.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
@@ -55,12 +55,10 @@
         const thebe_selector_input = "pre,.cell_input div.highlight"
         const thebe_selector_output = ".output,.cell_output"
     </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="shortcut icon" href="../../../_static/icon.png"/>
-    <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Chocolatería" href="../../RSA/Ilustraci%C3%B3n%20RSA.html" />
-    <link rel="prev" title="Chocolatería" href="../Chocolater%C3%ADa.html" />
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../../_static/icon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -77,15 +75,15 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
+<a class="navbar-brand text-wrap" href="../../index.html">
   
-  <img src="../../../_static/logo_uniandes.png" class="logo" alt="logo">
+  <img src="../../_static/logo_uniandes.png" class="logo" alt="logo">
   
   
   <h1 class="site-logo" id="site-title">Teoría de la Computación - Criptografía</h1>
   
 </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
@@ -97,7 +95,7 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../../Historia/Chapter%201.html">
+  <a class="reference internal" href="../../Historia/Chapter%201.html">
    Introducción a la Criptografía
   </a>
  </li>
@@ -107,20 +105,16 @@
   Diffie-Hellman
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="reference internal" href="../Chocolater%C3%ADa.html">
-   Chocolatería
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Diffie%20Hellman%20Ilustrado.html">
+   Diffie - Hellman: Ilustración
   </a>
-  <ul class="current collapse-ul">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Diffie-Hellman
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Diffie%20Hellman%20Teor%C3%ADa.html">
+   Diffie - Hellman: Ilustración
+  </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -130,17 +124,17 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../RSA/Ilustraci%C3%B3n%20RSA.html">
+  <a class="reference internal" href="../RSA/Ilustraci%C3%B3n%20RSA.html">
    Chocolatería
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../RSA/Teor%C3%ADa%20de%20RSA.html">
+  <a class="reference internal" href="../RSA/Teor%C3%ADa%20de%20RSA.html">
    Teoría de RSA
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../RSA/RSA%20en%20pr%C3%A1ctica.html">
+  <a class="reference internal" href="../RSA/RSA%20en%20pr%C3%A1ctica.html">
    RSA en práctica
   </a>
  </li>
@@ -180,7 +174,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/Sistemas Criptográficos/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Práctico.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -200,7 +194,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption/issues/new?title=Issue%20on%20page%20%2FSistemas Criptográficos/Diffie-Hellman/Implementacion/Primeros Conceptos.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption/issues/new?title=Issue%20on%20page%20%2FSistemas Criptográficos/Diffie-Hellman/Diffie Hellman Práctico.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -221,10 +215,10 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main?urlpath=tree/criptografia-book/Sistemas Criptográficos/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/mantimantilla/Theory-of-Computation-Encryption/main?urlpath=tree/criptografia-book/Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Práctico.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
+                    src="../../_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
         
         
@@ -246,35 +240,83 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#enunciado">
-   Enunciado
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Diffie - Hellman: Ilustración
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#motivacion">
+     Motivación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#procedimiento">
+     Procedimiento
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#idea-general">
+       Idea general
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#compromiso">
+       Compromiso
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vulnerabilidades">
+     Vulnerabilidades
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#ataque-de-intermediario">
+       Ataque de intermediario
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#formulacion">
-   Formulación
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#diffie-hellman">
+   Diffie-Hellman
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#formulacion-matematica">
-   Formulación matemática
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#implementacion">
-   Implementación
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rsa-en-practica">
-   RSA en práctica
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creditos">
-   Créditos
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#enunciado">
+     Enunciado
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formulacion">
+     Formulación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#formulacion-matematica">
+     Formulación matemática
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementacion">
+     Implementación
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rsa-en-practica">
+     RSA en práctica
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#creditos">
+     Créditos
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -288,7 +330,49 @@
         
               <div>
                 
-  <div class="section" id="diffie-hellman">
+  <div class="section" id="diffie-hellman-ilustracion">
+<h1>Diffie - Hellman: Ilustración<a class="headerlink" href="#diffie-hellman-ilustracion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
+<p>Con el advenimiento de la criptografía de llave pública, resultaba imperativo el desarrollo de un sistema robusto para establecer un canal de comunicación seguro. Procedimientos anteriores bajo la premisa de llaves privadas requerían convenir un intercambio presencial o vulnerable y expuesto de llaves para encriptar y desencriptar el contenido de los mensajes del canal establecido. Los primeros sistemas de criptografía de llave pública como el knapsack contemplan un procedimiento de generación de llaves que en su momento parecía robusto pero que, según el trabajo de los creadores del RSA, es suceptible a ataques altamente eficientes que permiten calcular las claves privadas en tiempo polinomial.</p>
+<p>El knapsack, como sistema de encripción, presenta procedimientos para cada etapa y ciclo de un canal de comunicación. Una vez establecidas las claves, puede establecerse la comunicación encriptando mensajes, liberandolos y desencriptandolos en su destino. Aunque existen posibles vulnerabilidades en cada etapa, nosotros nos enfocaremos por ahora en el procedimiento para la generación e intercambio de claves. Sistemas robustos de encripción como el RSA apalancan su funcionamiento desde el procedimiento descrito a continuación.</p>
+</div>
+<div class="section" id="procedimiento">
+<h2>Procedimiento<a class="headerlink" href="#procedimiento" title="Permalink to this headline">¶</a></h2>
+<p>Seguiremos el ejemplo clásico de Alice y Bob. Estos dos personajes deben compartir mensajes el uno con el otro de forma secreta, es decir, sin que algún tercero pueda conocer e interpretar el contenido de los mensajes aún si sabe que existe el canal de comunicación. Como antes mencionado, el procedimiento Diffie Helman permite generar llaves con las cuales encriptar o desencriptar mensajes. Por lo pronto estudiaremos el proceso para alcanzar este <em>secreto compartido</em>.</p>
+<div class="section" id="idea-general">
+<h3>Idea general<a class="headerlink" href="#idea-general" title="Permalink to this headline">¶</a></h3>
+<p>La comunicación en secreto, según su descripción inicial, puede describirse por la siguiente secuencia de pasos (Suponga un escenario donde Alice quiere enviar un mensaje a Bob):</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+<li><p>Independiente de como convenieron un secreto compartido, Alice utiliza el secreto para encriptar el mensaje.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
+</ol>
+<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
+<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob, como unico conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
+</ol>
+<p>Este procedimiento es suceptible a vulnerabilidades que estudiaremos con más detalle pronto. Note que hasta ahora Alice y bob no comparten información más allá del mensaje encriptado y la clave para encriptar. El valor de este procedimiento está en que idealmente la clave privada es desconocida por todos menos por el destinatario. En teoría, siempre podría establecerse un canal de comunicación por encripción asimétrica. En práctica, para que el cifrado con una llave pública sea seguro debe hacerse con claves que exigen un alto costo computacional. En su lugar, sería preferible establecer un canal de comunicación por encripción simétrica. Tenemos entonces el siguiente escenario.</p>
+<p>Alice y Bob pertenecen a una red pública y quieren comunicarse de manera privada. Pueden establecer cada vez su canal por encripción asimétrica, pero esto es altamente ineficiente. Pueden también establecer un canal de comunicación simétrico, pero para este deben ya compartir una clave con la que encriptar y desencriptar mensajes y convenir una en una red pública es altamente riesgoso. Un escenario ideal sería en el que Alice y Bob pudieran convenir una clave o <em>secreto compartido</em> sin que los otros miembros de la red se enteren para poder comunicarse con encripción simétrica.</p>
+</div>
+<div class="section" id="compromiso">
+<h3>Compromiso<a class="headerlink" href="#compromiso" title="Permalink to this headline">¶</a></h3>
+<p>En 1976 Whitfield Diffie y Martin Hellman publicaron un método que permite</p>
+</div>
+</div>
+<div class="section" id="vulnerabilidades">
+<h2>Vulnerabilidades<a class="headerlink" href="#vulnerabilidades" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ataque-de-intermediario">
+<h3>Ataque de intermediario<a class="headerlink" href="#ataque-de-intermediario" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="section" id="diffie-hellman">
 <h1>Diffie-Hellman<a class="headerlink" href="#diffie-hellman" title="Permalink to this headline">¶</a></h1>
 <p><b><i style="font-size:13px">Tags: </i></b><i style="font-size:11px">Introducción, Dos variables</i></p>
 <div class="section" id="enunciado">
@@ -445,7 +529,7 @@ Fecha: 30/09/2020</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./Sistemas Criptográficos/Diffie-Hellman/Implementacion"
+            path: "./Sistemas Criptográficos/Diffie-Hellman"
         },
         predefinedOutput: true
     }
@@ -457,8 +541,6 @@ Fecha: 30/09/2020</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../Chocolater%C3%ADa.html" title="previous page">Chocolatería</a>
-    <a class='right-next' id="next-link" href="../../RSA/Ilustraci%C3%B3n%20RSA.html" title="next page">Chocolatería</a>
 
         </div>
         
@@ -481,7 +563,7 @@ Fecha: 30/09/2020</p>
     </div>
 
     
-  <script src="../../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
 
 
     

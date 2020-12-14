@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chocolatería &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Diffie - Hellman: Ilustración &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,7 +59,7 @@
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Diffie-Hellman" href="Implementacion/Primeros%20Conceptos.html" />
+    <link rel="next" title="Diffie - Hellman: Ilustración" href="Diffie%20Hellman%20Teor%C3%ADa.html" />
     <link rel="prev" title="Introducción a la Criptografía" href="../../Historia/Chapter%201.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -108,19 +108,15 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Chocolatería
+   Diffie - Hellman: Ilustración
   </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="Implementacion/Primeros%20Conceptos.html">
-     Diffie-Hellman
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Diffie%20Hellman%20Teor%C3%ADa.html">
+   Diffie - Hellman: Ilustración
+  </a>
  </li>
 </ul>
 <p class="caption collapsible-parent">
@@ -180,7 +176,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/Sistemas Criptográficos/Diffie-Hellman/Chocolatería.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Ilustrado.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -200,7 +196,7 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption/issues/new?title=Issue%20on%20page%20%2FSistemas Criptográficos/Diffie-Hellman/Chocolatería.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/mantimantilla/Theory-of-Computation-Encryption/issues/new?title=Issue%20on%20page%20%2FSistemas Criptográficos/Diffie-Hellman/Diffie Hellman Ilustrado.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -227,19 +223,38 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#enunciado">
-   Enunciado
+  <a class="reference internal nav-link" href="#motivacion">
+   Motivación
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#formulacion">
-   Formulación
+  <a class="reference internal nav-link" href="#procedimiento">
+   Procedimiento
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#idea-general">
+     Idea general
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compromiso">
+     Compromiso
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creditos">
-   Créditos
+  <a class="reference internal nav-link" href="#vulnerabilidades">
+   Vulnerabilidades
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ataque-de-intermediario">
+     Ataque de intermediario
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -253,28 +268,47 @@
         
               <div>
                 
-  <div class="section" id="chocolateria">
-<h1>Chocolatería<a class="headerlink" href="#chocolateria" title="Permalink to this headline">¶</a></h1>
-<p><b><i style=\font-size:13px\>Tags: </i></b><i style=\font-size:11px\>Introducción, Dos variables</i></p>
-<div class="section" id="enunciado">
-<h2>Enunciado<a class="headerlink" href="#enunciado" title="Permalink to this headline">¶</a></h2>
-<p>La chocolatería Perla Caribe es un pequeño emprendimiento que fabrica y comercializa chocolates artesanales con cacao de distintas variedades comprado directamente a agricultores locales. Actualmente producen dos tipos de chocolates: chocolate oscuro y chocolate blanco. Una unidad de cualquier tipo de chocolate pesa 60g. Una unidad de chocolate oscuro se vende a 7,000 COP y una unidad de chocolate blanco se vende a 6,000 COP. Los costos asociados a materia prima, mano de obra y demás costos operacionales equivalen a 3,500 COP por cada unidad de chocolate oscuro y 2,000 COP por cada unidad de chocolate blanco.</p>
-<p>La producción de estos chocolates requiere de dos ingredientes en común: manteca de cacao y azúcar. Por cada unidad de chocolate oscuro se requiere 6g de manteca de cacao y 21 g de azúcar. Por cada unidad de chocolate blanco se requiere 22g de manteca de cacao y 18g de az]úcar. Cada semana, la chocolatería Perla Caribe tiene disponible 12kg de manteca de cacao y 20kg de azúcar. La demanda de chocolate oscuro es ilimitada, pero a lo sumo le demandan 315 unidades de chocolate blanco por semana.,</p>
-<p>La chocolatería Perla Caribe quiere maximizar su utilidad (ingresos menos costos). Formule un modelo matemático que represente la situación y que les permita cumplir con su objetivo.</p>
+  <div class="section" id="diffie-hellman-ilustracion">
+<h1>Diffie - Hellman: Ilustración<a class="headerlink" href="#diffie-hellman-ilustracion" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
+<p>Con el advenimiento de la criptografía de llave pública, resultaba imperativo el desarrollo de un sistema robusto para establecer un canal de comunicación seguro. Procedimientos anteriores bajo la premisa de llaves privadas requerían convenir un intercambio presencial o vulnerable y expuesto de llaves para encriptar y desencriptar el contenido de los mensajes del canal establecido. Los primeros sistemas de criptografía de llave pública como el knapsack contemplan un procedimiento de generación de llaves que en su momento parecía robusto pero que, según el trabajo de los creadores del RSA, es suceptible a ataques altamente eficientes que permiten calcular las claves privadas en tiempo polinomial.</p>
+<p>El knapsack, como sistema de encripción, presenta procedimientos para cada etapa y ciclo de un canal de comunicación. Una vez establecidas las claves, puede establecerse la comunicación encriptando mensajes, liberandolos y desencriptandolos en su destino. Aunque existen posibles vulnerabilidades en cada etapa, nosotros nos enfocaremos por ahora en el procedimiento para la generación e intercambio de claves. Sistemas robustos de encripción como el RSA apalancan su funcionamiento desde el procedimiento descrito a continuación.</p>
+<!-- #region -->
 </div>
-<div class="section" id="formulacion">
-<h2>Formulación<a class="headerlink" href="#formulacion" title="Permalink to this headline">¶</a></h2>
-<p><strong>a.</strong> Escriba término a término la(s) variable(s) de decisión que utilizará en el modelo.</p>
-<p><strong>b.</strong> Escriba término a término la(s) restricción(es) lineal(es) y descríbala(s)</p>
-<p><strong>c.</strong> Escriba término a término la función objetivo que maximiza la utilidad.</p>
-<p><strong>d.</strong> Resuelva el modelo planteado utilizando la librería de PuLP en Python. ¿Cuál es la solución óptima del problema?</p>
+<div class="section" id="procedimiento">
+<h2>Procedimiento<a class="headerlink" href="#procedimiento" title="Permalink to this headline">¶</a></h2>
+<p>Seguiremos el ejemplo clásico de Alice y Bob. Estos dos personajes deben compartir mensajes el uno con el otro de forma secreta, es decir, sin que algún tercero pueda conocer e interpretar el contenido de los mensajes aún si sabe que existe el canal de comunicación. Como antes mencionado, el procedimiento Diffie Helman permite generar llaves con las cuales encriptar o desencriptar mensajes. Por lo pronto estudiaremos el proceso para alcanzar este <em>secreto compartido</em>.</p>
+<div class="section" id="idea-general">
+<h3>Idea general<a class="headerlink" href="#idea-general" title="Permalink to this headline">¶</a></h3>
+<p>La comunicación en secreto, según su descripción inicial, puede describirse por la siguiente secuencia de pasos (Suponga un escenario donde Alice quiere enviar un mensaje a Bob):</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+<li><p>Independiente de como convenieron un secreto compartido, Alice utiliza el secreto para encriptar el mensaje.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
+</ol>
+<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
+<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob, como unico conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
+</ol>
+<p>Este procedimiento es suceptible a vulnerabilidades que estudiaremos con más detalle pronto. Note que hasta ahora Alice y bob no comparten información más allá del mensaje encriptado y la clave para encriptar. El valor de este procedimiento está en que idealmente la clave privada es desconocida por todos menos por el destinatario. En teoría, siempre podría establecerse un canal de comunicación por encripción asimétrica. En práctica, para que el cifrado con una llave pública sea seguro debe hacerse con claves que exigen un alto costo computacional. En su lugar, sería preferible establecer un canal de comunicación por encripción simétrica. Tenemos entonces el siguiente escenario.</p>
+<p>Alice y Bob pertenecen a una red pública y quieren comunicarse de manera privada. Pueden establecer cada vez su canal por encripción asimétrica, pero esto es altamente ineficiente. Pueden también establecer un canal de comunicación simétrico, pero para este deben ya compartir una clave con la que encriptar y desencriptar mensajes y convenir una en una red pública es altamente riesgoso. Un escenario ideal sería en el que Alice y Bob pudieran convenir una clave o <em>secreto compartido</em> sin que los otros miembros de la red se enteren para poder comunicarse con encripción simétrica.</p>
 </div>
-<div class="section" id="creditos">
-<h2>Créditos<a class="headerlink" href="#creditos" title="Permalink to this headline">¶</a></h2>
-<p>Equipo Principios de Optimización<br>
-Desarrollo: Alfaima Solano<br>
-Fecha: 30/09/2020</p>
-<div class="toctree-wrapper compound">
+<div class="section" id="compromiso">
+<h3>Compromiso<a class="headerlink" href="#compromiso" title="Permalink to this headline">¶</a></h3>
+<p>En 1976 Whitfield Diffie y Martin Hellman publicaron un método que permite</p>
+<!-- #endregion -->
+</div>
+</div>
+<div class="section" id="vulnerabilidades">
+<h2>Vulnerabilidades<a class="headerlink" href="#vulnerabilidades" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ataque-de-intermediario">
+<h3>Ataque de intermediario<a class="headerlink" href="#ataque-de-intermediario" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 </div>
@@ -305,7 +339,7 @@ Fecha: 30/09/2020</p>
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="../../Historia/Chapter%201.html" title="previous page">Introducción a la Criptografía</a>
-    <a class='right-next' id="next-link" href="Implementacion/Primeros%20Conceptos.html" title="next page">Diffie-Hellman</a>
+    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Teor%C3%ADa.html" title="next page">Diffie - Hellman: Ilustración</a>
 
         </div>
         
