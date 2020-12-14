@@ -4,10 +4,10 @@
   - file: Historia/Chapter 1.ipynb
 - part: Matemática y Computación
   chapters:
-  - file: Matematica/Primeros Conceptos/Diffie-Hellman.md
-  sections:
-      - file: Matematica/Primeros Conceptos/Implementacion/Primeros Conceptos.ipynb
-  - file: Matematica/Primeros Conceptos/RSA.md
+  - file: Matematica/Diffie-Hellman.md
     sections:
-      - file: Matematica/Primeros Conceptos/Implementacion/Teoría de RSA.ipynb
-      - file: Matematica/Primeros Conceptos/Implementacion/RSA en práctica.ipynb
+      - file: Matematica/Diffie-Hellman/Implementacion/Primeros Conceptos.ipynb
+  - file: Matematica/RSA.md
+    sections:
+      - file: Matematica/RSA/Teoría de RSA.ipynb
+      - file: Matematica/RSA/RSA en práctica.ipynb
