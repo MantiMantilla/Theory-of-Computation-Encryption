@@ -118,6 +118,11 @@
    Diffie - Hellman: Ilustración
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Diffie%20Hellman%20Pr%C3%A1ctico.html">
+   Diffie - Hellman: Ilustración
+  </a>
+ </li>
 </ul>
 <p class="caption collapsible-parent">
  <span class="caption-text">
@@ -338,29 +343,29 @@
 <h2>Protocolo<a class="headerlink" href="#protocolo" title="Permalink to this headline">¶</a></h2>
 <p>Veamos de forma ilustrativa el protocolo en acción. Entraremos en detalle de los aspectos matemáticos en la siguiente página.
 Se dijo con anterioridad, que el algoritmo Diffie-Hellman inicia una instancia de comunicación asimétrica, pero esta es distinta a lo que ya describimos.</p>
-<p>![Animación 1](./Animaciones/Animación 1.gif)</p>
+<p>![](./Animaciones/Animación 1.gif)</p>
 <p>Note en la animación que a cada parte le corresponde un espacio privado (seguro para los secretos) y comparten un espacio público disponible para ellos y cualquier tercero.</p>
 <ol class="simple">
 <li><p>En lugar de Alice y Bob definir una llave pública y una llave privada respectivamente, solo nos interesa que definan su llave privada (<span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>) y que acuerden entre sí, expuestos al público, dos valores <span class="math notranslate nohighlight">\(g\)</span> y <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
 </ol>
-<p>![Animación 2](./Animaciones/Animación 2.gif)</p>
+<p>![](./Animaciones/Animación 2.gif)</p>
 <p>Note que al pie de cada región llevamos un registro de las variables a las que han tenido acceso sus respectivos usuarios.</p>
-<p>![Animación 3](./Animaciones/Animación 3.gif)</p>
+<p>![](./Animaciones/Animación 3.gif)</p>
 <ol class="simple">
 <li><p>Con sus respectivas claves privadas, Alice y Bob computan un valor combinado con el generador <span class="math notranslate nohighlight">\(g\)</span> (recuerde que <span class="math notranslate nohighlight">\(g\)</span> es público). Este proceso de ‘mezclar’ los valore tiene un sentido matemático específico que impide que se pueda deshacer la operación. Respectivamente, Alice y Bob produjeron los valores <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span> de los cuales no se pueden inferir las claves privadas <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Sin <span class="math notranslate nohighlight">\(p\)</span>, esta operación es imposible.</p></li>
 </ol>
-<p>![Animación 4](./Animaciones/Animación 4.gif)</p>
+<p>![](./Animaciones/Animación 4.gif)</p>
 <ol class="simple">
 <li><p>Una vez generados estos cifrados, Alice y Bob los intercambian. Note que como aún no hay un canal seguro de comunicación, <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span> son públicos.</p></li>
 </ol>
-<p>![Animación 5](./Animaciones/Animación 5.gif)</p>
+<p>![](./Animaciones/Animación 5.gif)</p>
 <ol class="simple">
 <li><p>Nuevamente realizamos la operación de ‘mezclado’. Alice mezclará el cifrado público que acaba de recibir de Bob con su clave privada (<span class="math notranslate nohighlight">\(bg\)</span> con <span class="math notranslate nohighlight">\(a\)</span>, produce <span class="math notranslate nohighlight">\(abg\)</span>). Bob, hará lo mismo con su clave privada y el cifrado público que recibió de Alice (<span class="math notranslate nohighlight">\(ag\)</span> on <span class="math notranslate nohighlight">\(b\)</span>, produce <span class="math notranslate nohighlight">\(abg\)</span>).</p></li>
 </ol>
-<p>![Animación 6](./Animaciones/Animación 6.gif)</p>
+<p>![](./Animaciones/Animación 6.gif)</p>
 <p>Note que ahora Alice y Bob comparten un cifrado irreversible (idéntico para ambos) el cual pueden utilizar para encriptar cualquier mensaje consecuente. Alice y Bob pueden ahora establecer un canal de comunicación seguro, con encriptación simétrica.</p>
 <p>Veamos ahora, que únicamente Alice y Bob pueden generar la llave simétrica <span class="math notranslate nohighlight">\(abg\)</span>. El público tiene acceso al generador <span class="math notranslate nohighlight">\(g\)</span>, el valor <span class="math notranslate nohighlight">\(p\)</span> y las llaves cifradas <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span>. No hay forma de ‘mezclar’ estos valores de forma tal que generen <span class="math notranslate nohighlight">\(abg\)</span>. Intentar ‘mezclar’ <span class="math notranslate nohighlight">\(bg\)</span> con <span class="math notranslate nohighlight">\(ag\)</span> produciría algo como <span class="math notranslate nohighlight">\(abgg\)</span>, lo cual es un valor completamente distinto y que no sirve para descifrar los mensajes entre Alice y Bob. ¡Hemos establecido un canal seguro de encriptación simétrica!</p>
-<p>![Animación 7](./Animaciones/Animación 7.gif)</p>
+<p>![](./Animaciones/Animación 7.gif)</p>
 </div>
 <div class="section" id="vulnerabilidades">
 <h2>Vulnerabilidades<a class="headerlink" href="#vulnerabilidades" title="Permalink to this headline">¶</a></h2>
