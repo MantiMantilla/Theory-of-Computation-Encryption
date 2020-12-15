@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teoría &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Teoría del RSA &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Práctica" href="RSA%20en%20pr%C3%A1ctica.html" />
-    <link rel="prev" title="Ilustración" href="Ilustraci%C3%B3n%20RSA.html" />
+    <link rel="next" title="Práctica del RSA" href="RSA%20en%20pr%C3%A1ctica.html" />
+    <link rel="prev" title="Ilustración del RSA" href="Ilustraci%C3%B3n%20RSA.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -110,17 +110,17 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../Diffie-Hellman/Diffie%20Hellman%20Ilustrado.html">
-   Ilustración
+   Ilustración del Diffie-Hellman
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Diffie-Hellman/Diffie%20Hellman%20Teor%C3%ADa.html">
-   Teoría
+   Teoría del Diffie-Hellman
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../Diffie-Hellman/Diffie%20Hellman%20Pr%C3%A1ctico.html">
-   Práctica
+   Práctica del Diffie-Hellman
   </a>
  </li>
 </ul>
@@ -132,17 +132,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Ilustraci%C3%B3n%20RSA.html">
-   Ilustración
+   Ilustración del RSA
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Teoría
+   Teoría del RSA
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="RSA%20en%20pr%C3%A1ctica.html">
-   Práctica
+   Práctica del RSA
   </a>
  </li>
 </ul>
@@ -250,8 +250,8 @@
         
               <div>
                 
-  <div class="section" id="teoria">
-<h1>Teoría<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="teoria-del-rsa">
+<h1>Teoría del RSA<a class="headerlink" href="#teoria-del-rsa" title="Permalink to this headline">¶</a></h1>
 <p>Los aspectos teóricos que están detrás del sistema RSA son varios resultados de teoría de números que se explican a continuación.</p>
 <p><strong>Definición</strong>: La función <span class="math notranslate nohighlight">\(\varphi:\mathbb{Z}^+\longrightarrow\mathbb{N}\)</span> denominada
 <span class="math notranslate nohighlight">\(\varphi\)</span> de Euler, se define para un número <span class="math notranslate nohighlight">\(n\)</span> entero positivo de la siguiente forma:</p>
@@ -272,9 +272,9 @@ Finalmente, es importante el siguiente teorema:</p>
 <span class="math notranslate nohighlight">\( C^{d}\)</span> módulo <span class="math notranslate nohighlight">\( N\)</span>. Esto funciona por el Teorema Euler-Fermat, pues <span class="math notranslate nohighlight">\(M\)</span> y <span class="math notranslate nohighlight">\(N\)</span> son primos relativos porque <span class="math notranslate nohighlight">\(M\)</span> es distinto a <span class="math notranslate nohighlight">\( P \)</span>, <span class="math notranslate nohighlight">\( Q \)</span> y <span class="math notranslate nohighlight">\( N\)</span>, y como <span class="math notranslate nohighlight">\( e\cdot d\equiv 1 \mod \varphi(N) \)</span>, existe un entero <span class="math notranslate nohighlight">\( k \)</span> tal que <span class="math notranslate nohighlight">\( e\cdot d=\varphi(N)k+1  \)</span> y por lo tanto se tiene</p>
 <div class="math notranslate nohighlight">
 \[
-    C^{d}\equiv (M^{e})^{d} \equiv M^{ed} \equiv M^{\varphi(N)k+1} \equiv MM^{\varphi(N)k} \equiv M(M^{\varphi(N)})^k \equiv M1^k \equiv M \mod N.
+    C^{d}\equiv (M^{e})^{d} \equiv M^{ed} \equiv M^{\varphi(N)k+1} \equiv MM^{\varphi(N)k} \equiv M(M^{\varphi(N)})^k \equiv M1^k \equiv M \hspace{0.5em} (\text{mod } N).
 \]</div>
-<p>El teorema Euler-Fermat se usa en el paso <span class="math notranslate nohighlight">\( M(M^{\varphi(N)})^k \equiv M1^k\)</span>. De esta manera, el banco logra recobrar el mensaje completo del cliente. Aquí se evidencia la importancia de que <span class="math notranslate nohighlight">\(M\)</span> sea menor o igual a <span class="math notranslate nohighlight">\(N\)</span>, pues de lo contrario cuando el banco calcula <span class="math notranslate nohighlight">\(C^d \mod N\)</span> obtendría <span class="math notranslate nohighlight">\(M \mod N\)</span>, el cual es distinto al mensaje original del cliente <span class="math notranslate nohighlight">\(M\)</span> dado que <span class="math notranslate nohighlight">\(M&gt;N\)</span>.</p>
+<p>El teorema Euler-Fermat se usa en el paso <span class="math notranslate nohighlight">\( M(M^{\varphi(N)})^k \equiv M1^k\)</span>. De esta manera, el banco logra recobrar el mensaje completo del cliente. Aquí se evidencia la importancia de que <span class="math notranslate nohighlight">\(M\)</span> sea menor o igual a <span class="math notranslate nohighlight">\(N\)</span>, pues de lo contrario cuando el banco calcula <span class="math notranslate nohighlight">\(C^d\)</span> (mod <span class="math notranslate nohighlight">\(N\)</span>) obtendría <span class="math notranslate nohighlight">\(M\)</span> (mod <span class="math notranslate nohighlight">\(N\)</span>), el cual es distinto al mensaje original del cliente <span class="math notranslate nohighlight">\(M\)</span> dado que <span class="math notranslate nohighlight">\(M&gt;N\)</span>.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -302,8 +302,8 @@ Finalmente, es importante el siguiente teorema:</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Ilustraci%C3%B3n%20RSA.html" title="previous page">Ilustración</a>
-    <a class='right-next' id="next-link" href="RSA%20en%20pr%C3%A1ctica.html" title="next page">Práctica</a>
+    <a class='left-prev' id="prev-link" href="Ilustraci%C3%B3n%20RSA.html" title="previous page">Ilustración del RSA</a>
+    <a class='right-next' id="next-link" href="RSA%20en%20pr%C3%A1ctica.html" title="next page">Práctica del RSA</a>
 
         </div>
         

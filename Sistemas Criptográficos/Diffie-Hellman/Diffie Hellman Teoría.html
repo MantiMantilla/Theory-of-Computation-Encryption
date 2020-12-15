@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teoría &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Teoría del Diffie-Hellman &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Práctica" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
-    <link rel="prev" title="Ilustración" href="Diffie%20Hellman%20Ilustrado.html" />
+    <link rel="next" title="Práctica del Diffie-Hellman" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
+    <link rel="prev" title="Ilustración del Diffie-Hellman" href="Diffie%20Hellman%20Ilustrado.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -110,17 +110,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Ilustrado.html">
-   Ilustración
+   Ilustración del Diffie-Hellman
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Teoría
+   Teoría del Diffie-Hellman
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Pr%C3%A1ctico.html">
-   Práctica
+   Práctica del Diffie-Hellman
   </a>
  </li>
 </ul>
@@ -132,17 +132,17 @@
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../RSA/Ilustraci%C3%B3n%20RSA.html">
-   Ilustración
+   Ilustración del RSA
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../RSA/Teor%C3%ADa%20de%20RSA.html">
-   Teoría
+   Teoría del RSA
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../RSA/RSA%20en%20pr%C3%A1ctica.html">
-   Práctica
+   Práctica del RSA
   </a>
  </li>
 </ul>
@@ -222,35 +222,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#motivacion">
-   Motivación
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#el-algoritmo">
-   El algoritmo
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#demostraciones">
-   Demostraciones
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusiones">
-   Conclusiones
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -259,42 +230,20 @@
         
               <div>
                 
-  <!-- #region -->
-<div class="section" id="teoria">
-<h1>Teoría<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="motivacion">
-<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
-<p>En la página anterior describimos el protocolo de intercambio de llaves en terminos generales y simplificados. Acciones como ‘mezclar’ las claves, encriptar un mensaje o asegurar que el público no tiene acceso a ciertos valores sea porque son privados o porque son muy dificiles de calcular son todas afirmaciones acertadas pero peligrosamente generales. Esta página busca elaborar con formalidad acerca de los procedimientos matemáticos, teoremas y demás abstracciones antes mencionadas.</p>
-<p>Suponemos un ligero entendimiento de matemática discreta y algebra para desarrollar expresiones de lógica.</p>
-</div>
-<div class="section" id="el-algoritmo">
-<h2>El algoritmo<a class="headerlink" href="#el-algoritmo" title="Permalink to this headline">¶</a></h2>
-<p>En la página anterior estudiamos el paso a paso del algoritmo sin pensar mucho en como generamos los valores mencionados. Vamos paso por paso estudiando los valores necesarios.</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-</ol>
-<p>Nada fuera de lo usual acá. Es tan solo la motivación detras los siguientes pasos.</p>
-<ol class="simple">
-<li><p>Alice y Bob concuerdan en un valor generador <span class="math notranslate nohighlight">\(g\)</span> y un módulo <span class="math notranslate nohighlight">\(p\)</span> para publicar.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
-</ol>
-<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
-<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob, como único conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
-</ol>
-</div>
-<div class="section" id="demostraciones">
-<h2>Demostraciones<a class="headerlink" href="#demostraciones" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="conclusiones">
-<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this headline">¶</a></h2>
-<!-- #endregion -->
-</div>
+  <div class="section" id="teoria-del-diffie-hellman">
+<h1>Teoría del Diffie-Hellman<a class="headerlink" href="#teoria-del-diffie-hellman" title="Permalink to this headline">¶</a></h1>
+<p>En la página anterior describimos el protocolo de intercambio de llaves en terminos generales y simplificados. Acciones como ‘mezclar’ las claves, encriptar un mensaje o asegurar que el público no tiene acceso a ciertos valores sea porque son privados o porque son muy dificiles de calcular son todas afirmaciones acertadas, pero peligrosamente generales. Esta página busca elaborar con formalidad acerca de los procedimientos matemáticos, teoremas y demás abstracciones antes mencionadas.</p>
+<p>Suponemos un ligero entendimiento de matemática discreta y algebra modular.</p>
+<p>Como mencionamos anteriormente, Alice y Bob se ponen de acuerdo de manera pública en dos valores <span class="math notranslate nohighlight">\(g\)</span> y <span class="math notranslate nohighlight">\(p\)</span>. Más específicamente, <span class="math notranslate nohighlight">\(p\)</span> debe ser un primo muy grande y <span class="math notranslate nohighlight">\(g\)</span> debe ser un entero positivo menor que <span class="math notranslate nohighlight">\(p\)</span>. Ahora, Alice escoge un entero positivo en privado <span class="math notranslate nohighlight">\(a\)</span> y Bob escoge un entero positivo en privado <span class="math notranslate nohighlight">\(b\)</span>. Ambos números deben ser menores a <span class="math notranslate nohighlight">\(p\)</span> y el número que escogió cada uno corresponde a su “clave privada”. Con esta información, Alice y Bob están listos para publicar sus “claves públicas” <span class="math notranslate nohighlight">\(P_A\)</span> y <span class="math notranslate nohighlight">\(P_B\)</span>, respectivamente, que corresponden a los números</p>
+<div class="math notranslate nohighlight">
+\[P_A=g^{a}\hspace{0.5em}(\text{mod } p) \hspace{1em} \text{y} \hspace{1em} P_B=g^{b}\hspace{0.5em}(\text{mod } p).\]</div>
+<p>Su clave compartida corresponde entonces a <span class="math notranslate nohighlight">\(K=g^{ab}\)</span>(mod <span class="math notranslate nohighlight">\(p\)</span>). Para calcularla, Alice eleva <span class="math notranslate nohighlight">\(P_B\)</span> a la <span class="math notranslate nohighlight">\(a\)</span> y calcula el residuo módulo <span class="math notranslate nohighlight">\(p\)</span> y Bob eleva <span class="math notranslate nohighlight">\(P_A\)</span> a la <span class="math notranslate nohighlight">\(b\)</span> y calcula el residuo módulo <span class="math notranslate nohighlight">\(p\)</span>. Estas dos operaciones arrojan el mismo número <span class="math notranslate nohighlight">\(K\)</span> por las siguientes propiedades algebráicas de la aritmética modular</p>
+<div class="math notranslate nohighlight">
+\[(P_B)^{a}\equiv(g^{b})^{a}\equiv g^{ab}\equiv(g^{a})^{b}\equiv (P_A)^{b}\hspace{0.5em}(\text{mod } p).\]</div>
+<p>La efectividad de este sistema de encriptación radica en que exponenciar y calcular residuos es un proceso que cualquier computador ejcuta de manera rápida (en tiempo polinomial). Así que tanto Alice como Bob pueden construir su “clave compartida” de manera rápida cada uno por aparte, como se menciona arriba. Ahora bien, si alguien tratase de calcular las “claves privadas” de Alice y Bob para obtener su “clave compaertida” se encontraría con el problema de calcular la soluciones <span class="math notranslate nohighlight">\(x\)</span> y <span class="math notranslate nohighlight">\(y\)</span> a las congruencias</p>
+<div class="math notranslate nohighlight">
+\[P_A\equiv g^{x}\hspace{0.5em}(\text{mod } p) \hspace{1em} \text{y} \hspace{1em} P_B\equiv g^{y}\hspace{0.5em}(\text{mod } p).\]</div>
+<p>Ahora bien, este problema es conocido como el problema del logaritmo discreto y es computacionalmente muy complejo, pues note que pertenece a la clase NP donde el verificador es el exponente.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -322,8 +271,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Ilustrado.html" title="previous page">Ilustración</a>
-    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Práctica</a>
+    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Ilustrado.html" title="previous page">Ilustración del Diffie-Hellman</a>
+    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Práctica del Diffie-Hellman</a>
 
         </div>
         

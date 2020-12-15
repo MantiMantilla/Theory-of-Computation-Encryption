@@ -1,4 +1,4 @@
-# Ilustración
+# Ilustración del RSA
 
 <b><i style=\font-size:13px\>Tags: </i></b><i style=\font-size:11px\>Introducción, Dos variables</i>
 
@@ -25,3 +25,7 @@ La chocolatería Perla Caribe quiere maximizar su utilidad (ingresos menos costo
 Equipo Principios de Optimización<br>
 Desarrollo: Alfaima Solano<br>
 Fecha: 30/09/2020
+
+```python
+
+```

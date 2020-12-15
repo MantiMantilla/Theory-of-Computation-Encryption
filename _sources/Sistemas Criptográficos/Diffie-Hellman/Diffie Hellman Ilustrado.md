@@ -1,5 +1,5 @@
 <!-- #region -->
-# Ilustración
+# Ilustración del Diffie-Hellman
 
 ## Motivación
 
