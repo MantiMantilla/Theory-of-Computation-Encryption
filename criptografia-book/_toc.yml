@@ -8,7 +8,7 @@
   chapters:
   - file: Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Ilustrado.md
   - file: Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Teoría.md
-  - file: Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Práctico.md.ipynb
+  - file: Sistemas Criptográficos/Diffie-Hellman/Diffie Hellman Práctico.ipynb
       
 - part: RSA
   chapters:
