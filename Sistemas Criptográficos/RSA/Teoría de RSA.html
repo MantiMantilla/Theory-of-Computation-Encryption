@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Teoría del RSA &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Ilustración y Teoría del RSA &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -60,7 +60,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Práctica del RSA" href="RSA%20en%20pr%C3%A1ctica.html" />
-    <link rel="prev" title="Ilustración del RSA" href="Ilustraci%C3%B3n%20RSA.html" />
+    <link rel="prev" title="Práctica de Diffie-Hellman" href="../Diffie-Hellman/Diffie%20Hellman%20Pr%C3%A1ctico.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -130,14 +130,9 @@
  </span>
 </p>
 <ul class="current nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="Ilustraci%C3%B3n%20RSA.html">
-   Ilustración del RSA
-  </a>
- </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Teoría del RSA
+   Ilustración y Teoría del RSA
   </a>
  </li>
  <li class="toctree-l1">
@@ -242,6 +237,37 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#motivacion">
+   Motivación
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primeros-conceptos">
+   Primeros conceptos
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#idea-general">
+     Idea general
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#teoria">
+   Teoría
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -250,8 +276,22 @@
         
               <div>
                 
-  <div class="section" id="teoria-del-rsa">
-<h1>Teoría del RSA<a class="headerlink" href="#teoria-del-rsa" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ilustracion-y-teoria-del-rsa">
+<h1>Ilustración y Teoría del RSA<a class="headerlink" href="#ilustracion-y-teoria-del-rsa" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="motivacion">
+<h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
+<p>Nos ocuparemos ahora con entender un sistema criptográfico más extenso. Vimos en la sección de Diffie-Hellman el comportamiento de un sistema de intercambio de claves cuyo proposito es establecer un canal de comunicación con cifrado simétrico. Para evaluar la efectividad de este método usamos cifrados escogidos de forma arbitraria, así como sesiones para las llaves efimeras de un único mensaje. Estas decisiones no son características de Diffie-Hellman ya que es un sistema que contempla solo el primer requisito para establecer comunicación. Introduciremos el RSA. Nombrado así por los tres investigadores que publicaron su hallazgo en 1977, el RSA es un sistema criptográfico que, así como el Diffie-Hellman, contempla una fase de generación y distribución de llaves, pero también contempla métodos de encripción y descifrado específicos del protocolo.</p>
+</div>
+<div class="section" id="primeros-conceptos">
+<h2>Primeros conceptos<a class="headerlink" href="#primeros-conceptos" title="Permalink to this headline">¶</a></h2>
+<p>Recordemos que el objetivo de el Diffie-Hellman es el de permitirle a dos partes compartir una misma clave privada con la que cifrar y descifrar mensajes de forma simétrica. El RSA, por otro lado, es un sistema criptográfico asimétrico. Esto quiere decir que el proces de encriptar y desencriptar un mensaje se hace con una llave pública y su complemento privado. Un mensaje encriptado con una llave pública solo puede ser descifrado por su contraparte privada. En la primer página del Diffie-Hellman exploramos distintas formas en las que este par de llaves puede ser utilizado para autenticar el remitente de un mensaje, o para asegurar que solo el destinatario pueda leer el contenido de un mensaje.</p>
+<div class="section" id="idea-general">
+<h3>Idea general<a class="headerlink" href="#idea-general" title="Permalink to this headline">¶</a></h3>
+<p>En el caso de la criptografía simétrica, debe establecerse una clave única para cada canal de comunicación. Si, volviendo a nuestro ejemplo ilustrativo del Diffie-Hellman, muchas otras personas quisieran comunicarse con Alice con cifrado simétrico, esta tendría que establecer una llave secreta con cada uno de estos. Un acercamiento a la criptografía asimétrica más rudimentario no es muy distinto, ya que un destinatario de un mensaje tiene una llave pública única con la que debería encriptarse su mensaje para que este pueda descifrarlo con su clave privada. En este caso la cantidad de llaves que Alice debe manejar en función de destinatario es mínima. Alice tan solo contempla su clave pública, con la que todos pueden encriptar un mensaje destinado a ella, y su clave privada, con la que descifrará todo mensaje destinado a ella. Una analogía común es aquella de el candado y la llave, donde si Alice quiere recibir un mensaje de Bob, le puede prestar una caja con un candado sin llave. Bob empaca su mensaje y lo sella con el candado y despacha la caja para donde Alice. Alice, propietaria de la llave, abre el candado y lee el mensaje de Bob. Es evidente que el candado es el equivalente a una llave pública la llave del candado su complemento privado.</p>
+</div>
+</div>
+<div class="section" id="teoria">
+<h2>Teoría<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h2>
 <p>Los aspectos teóricos que están detrás del sistema RSA son varios resultados de teoría de números que se explican a continuación.</p>
 <p><strong>Definición</strong>: La función <span class="math notranslate nohighlight">\(\varphi:\mathbb{Z}^+\longrightarrow\mathbb{N}\)</span> denominada
 <span class="math notranslate nohighlight">\(\varphi\)</span> de Euler, se define para un número <span class="math notranslate nohighlight">\(n\)</span> entero positivo de la siguiente forma:</p>
@@ -275,6 +315,7 @@ Finalmente, es importante el siguiente teorema:</p>
     C^{d}\equiv (M^{e})^{d} \equiv M^{ed} \equiv M^{\varphi(N)k+1} \equiv MM^{\varphi(N)k} \equiv M(M^{\varphi(N)})^k \equiv M1^k \equiv M \hspace{0.5em} (\text{mod } N).
 \]</div>
 <p>El teorema Euler-Fermat se usa en el paso <span class="math notranslate nohighlight">\( M(M^{\varphi(N)})^k \equiv M1^k\)</span>. De esta manera, el banco logra recobrar el mensaje completo del cliente. Aquí se evidencia la importancia de que <span class="math notranslate nohighlight">\(M\)</span> sea menor o igual a <span class="math notranslate nohighlight">\(N\)</span>, pues de lo contrario cuando el banco calcula <span class="math notranslate nohighlight">\(C^d\)</span> (mod <span class="math notranslate nohighlight">\(N\)</span>) obtendría <span class="math notranslate nohighlight">\(M\)</span> (mod <span class="math notranslate nohighlight">\(N\)</span>), el cual es distinto al mensaje original del cliente <span class="math notranslate nohighlight">\(M\)</span> dado que <span class="math notranslate nohighlight">\(M&gt;N\)</span>.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -302,7 +343,7 @@ Finalmente, es importante el siguiente teorema:</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Ilustraci%C3%B3n%20RSA.html" title="previous page">Ilustración del RSA</a>
+    <a class='left-prev' id="prev-link" href="../Diffie-Hellman/Diffie%20Hellman%20Pr%C3%A1ctico.html" title="previous page">Práctica de Diffie-Hellman</a>
     <a class='right-next' id="next-link" href="RSA%20en%20pr%C3%A1ctica.html" title="next page">Práctica del RSA</a>
 
         </div>
