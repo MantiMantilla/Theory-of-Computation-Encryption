@@ -1,4 +1,4 @@
-# Chocolatería
+# Ilustración
 
 <b><i style=\font-size:13px\>Tags: </i></b><i style=\font-size:11px\>Introducción, Dos variables</i>
 
