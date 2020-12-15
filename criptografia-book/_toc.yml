@@ -12,6 +12,5 @@
       
 - part: RSA
   chapters:
-  - file: Sistemas Criptográficos/RSA/Ilustración RSA.md
   - file: Sistemas Criptográficos/RSA/Teoría de RSA.ipynb
   - file: Sistemas Criptográficos/RSA/RSA en práctica.ipynb

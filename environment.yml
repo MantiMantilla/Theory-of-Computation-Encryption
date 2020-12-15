@@ -4,5 +4,4 @@ channels:
   - conda-forge
   - anaconda
 dependencies:
-  - numpy
   - jupytext>=0.16
