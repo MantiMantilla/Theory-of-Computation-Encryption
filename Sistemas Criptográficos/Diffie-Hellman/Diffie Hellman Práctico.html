@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diffie - Hellman: Ilustración &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Diffie - Hellman: Práctica &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -60,7 +60,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Chocolatería" href="../RSA/Ilustraci%C3%B3n%20RSA.html" />
-    <link rel="prev" title="Diffie - Hellman: Ilustración" href="Diffie%20Hellman%20Teor%C3%ADa.html" />
+    <link rel="prev" title="Diffie - Hellman: Teoría" href="Diffie%20Hellman%20Teor%C3%ADa.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -115,12 +115,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Teor%C3%ADa.html">
-   Diffie - Hellman: Ilustración
+   Diffie - Hellman: Teoría
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Diffie - Hellman: Ilustración
+   Diffie - Hellman: Práctica
   </a>
  </li>
 </ul>
@@ -256,40 +256,21 @@
   <a class="reference internal nav-link" href="#primeros-conceptos">
    Primeros conceptos
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#idea-general">
-     Idea general
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compromiso">
-     Compromiso
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#protocolo">
-   Protocolo
+  <a class="reference internal nav-link" href="#intercambio-de-llaves">
+   Intercambio de llaves
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vulnerabilidades">
-   Vulnerabilidades
+  <a class="reference internal nav-link" href="#man-in-the-middle">
+   Man in the middle
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ataque-de-intermediario-man-in-the-middle">
-     Ataque de intermediario (Man in the Middle)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#forward-secrecy-pfs">
-     Forward secrecy (PFS)
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#autenticacion">
+   Autenticación
+  </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#conclusiones">
@@ -308,124 +289,25 @@
         
               <div>
                 
-  <div class="section" id="diffie-hellman-ilustracion">
-<h1>Diffie - Hellman: Ilustración<a class="headerlink" href="#diffie-hellman-ilustracion" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="diffie-hellman-practica">
+<h1>Diffie - Hellman: Práctica<a class="headerlink" href="#diffie-hellman-practica" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
-<p>Con el advenimiento de la criptografía de llave pública, resultaba imperativo el desarrollo de un sistema robusto para establecer un canal de comunicación seguro. Procedimientos anteriores bajo la premisa de llaves privadas requerían convenir un intercambio presencial o vulnerable y expuesto de llaves para encriptar y desencriptar el contenido de los mensajes del canal establecido. Los primeros sistemas de criptografía de llave pública como el knapsack contemplan un procedimiento de generación de llaves que en su momento parecía robusto pero que, según el trabajo de los creadores del RSA, es susceptible a ataques altamente eficientes que permiten calcular las claves privadas en tiempo polinomial.</p>
-<p>El knapsack, como sistema de encriptación, presenta procedimientos para cada etapa y ciclo de un canal de comunicación. Una vez establecidas las claves, puede establecerse la comunicación encriptando mensajes, liberándolos y desencriptándolos en su destino. Aunque existen posibles vulnerabilidades en cada etapa, nosotros nos enfocaremos por ahora en el procedimiento para la generación e intercambio de claves, Diffie-Hellman. Sistemas robustos de encriptación como el RSA apalancan su funcionamiento desde el procedimiento descrito a continuación.</p>
 </div>
 <div class="section" id="primeros-conceptos">
 <h2>Primeros conceptos<a class="headerlink" href="#primeros-conceptos" title="Permalink to this headline">¶</a></h2>
-<p>Seguiremos el ejemplo clásico de Alice y Bob. Estos dos personajes deben compartir mensajes el uno con el otro de forma secreta, es decir, sin que algún tercero pueda conocer e interpretar el contenido de los mensajes aún si sabe que existe el canal de comunicación. Como antes mencionado, el procedimiento Diffie Helman permite generar llaves con las cuales encriptar o desencriptar mensajes. Por lo pronto estudiaremos el proceso para alcanzar este <em>secreto compartido</em>.</p>
-<div class="section" id="idea-general">
-<h3>Idea general<a class="headerlink" href="#idea-general" title="Permalink to this headline">¶</a></h3>
-<p>La comunicación en secreto, según su descripción inicial, puede describirse por la siguiente secuencia de pasos (Suponga un escenario donde Alice quiere enviar un mensaje a Bob):</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-<li><p>Independiente de como convinieron un secreto compartido, Alice utiliza el secreto para encriptar el mensaje.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
-</ol>
-<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
-<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob, como único conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
-</ol>
-<p>Este procedimiento es susceptible a vulnerabilidades que estudiaremos con más detalle pronto. Note que hasta ahora Alice y Bob no comparten información más allá del mensaje encriptado y la clave para encriptar. El valor de este procedimiento está en que idealmente la clave privada es desconocida por todos menos por el destinatario. En teoría, siempre podría establecerse un canal de comunicación por encriptación asimétrica. En práctica, para que el cifrado con una llave pública sea seguro debe hacerse con claves que exigen un alto costo computacional. En su lugar, sería preferible establecer un canal de comunicación por encriptación simétrica. Tenemos entonces el siguiente escenario.</p>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition-nota admonition">
-<p class="admonition-title">Nota</p>
-<p>Tecnologías como la criptografía de curva elíptica vuelven el intercambio asimétrico más factible, aunque no lo contemplamos en nuestra investigación.</p>
 </div>
+<div class="section" id="intercambio-de-llaves">
+<h2>Intercambio de llaves<a class="headerlink" href="#intercambio-de-llaves" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition-nota admonition">
-<p class="admonition-title">Nota</p>
-<p>Una red pública no necesariamente se refiera al contexto digital. Estos procedimientos son valiosos bajo cualquier contexto donde la comunicación entre partes es vulnerable a terceros.</p>
+<div class="section" id="man-in-the-middle">
+<h2>Man in the middle<a class="headerlink" href="#man-in-the-middle" title="Permalink to this headline">¶</a></h2>
 </div>
-</div>
-<p>Alice y Bob pertenecen a una red pública y quieren comunicarse de manera privada. Pueden establecer cada vez su canal por encriptación asimétrica, pero esto es altamente ineficiente. Pueden también establecer un canal de comunicación simétrico, pero para este deben ya compartir una clave con la que encriptar y desencriptar mensajes y convenir una en una red pública es altamente riesgoso. Un escenario ideal sería en el que Alice y Bob pudieran convenir una clave o <em>secreto compartido</em> sin que los otros miembros de la red se enteren para poder comunicarse con encriptación simétrica.</p>
-</div>
-<div class="section" id="compromiso">
-<h3>Compromiso<a class="headerlink" href="#compromiso" title="Permalink to this headline">¶</a></h3>
-<p>En 1976 Whitfield Diffie y Martin Hellman publicaron un método que permite establecer un <em>secreto compartido</em> entre dos partes para habilitar un canal de comunicación eficiente. El objetivo es generar una llave privada conocida por ambas partes de forma que puedan de forma eficiente encriptar y desencriptar de forma simétrica la información que se comparten. Las ineficiencias de la criptografía asimétrica son evidentes si el objetivo es compartir muchos mensajes extensos, pero para un paso sencillo, como compartir una llave de encriptación simétrica, resulta atractiva la comunicación asimétrica.</p>
-<p>En términos generales, el protocolo de intercambio de llaves Diffie-Hellman establece una instancia de un canal de comunicación asimétrica para compartir información entre dos partes en una única ocasión para esa sesión (Luego veremos que restringir una sesión a un único mensaje puede ser atractivo). En esta instancia, las partes generan una llave simétrica a partir de sus claves privadas y públicas, conocida solo por ellos, para luego establecer un canal de comunicación simétrico, descifrable solo por los dos con una misma llave compartida.</p>
-</div>
-</div>
-<div class="section" id="protocolo">
-<h2>Protocolo<a class="headerlink" href="#protocolo" title="Permalink to this headline">¶</a></h2>
-<p>Veamos de forma ilustrativa el protocolo en acción. Entraremos en detalle de los aspectos matemáticos en la siguiente página.
-Se dijo con anterioridad, que el algoritmo Diffie-Hellman inicia una instancia de comunicación asimétrica, pero esta es distinta a lo que ya describimos.</p>
-<p>![Animación 1](./Animaciones/Animación 1.gif)</p>
-<p>Note en la animación que a cada parte le corresponde un espacio privado (seguro para los secretos) y comparten un espacio público disponible para ellos y cualquier tercero.</p>
-<ol class="simple">
-<li><p>En lugar de Alice y Bob definir una llave pública y una llave privada respectivamente, solo nos interesa que definan su llave privada (<span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>) y que acuerden entre sí, expuestos al público, dos valores <span class="math notranslate nohighlight">\(g\)</span> y <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
-</ol>
-<p>![Animación 2](./Animaciones/Animación 2.gif)</p>
-<p>Note que al pie de cada región llevamos un registro de las variables a las que han tenido acceso sus respectivos usuarios.</p>
-<p>![Animación 3](./Animaciones/Animación 3.gif)</p>
-<ol class="simple">
-<li><p>Con sus respectivas claves privadas, Alice y Bob computan un valor combinado con el generador <span class="math notranslate nohighlight">\(g\)</span> (recuerde que <span class="math notranslate nohighlight">\(g\)</span> es público). Este proceso de ‘mezclar’ los valore tiene un sentido matemático específico que impide que se pueda deshacer la operación. Respectivamente, Alice y Bob produjeron los valores <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span> de los cuales no se pueden inferir las claves privadas <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>. Sin <span class="math notranslate nohighlight">\(p\)</span>, esta operación es imposible.</p></li>
-</ol>
-<p>![Animación 4](./Animaciones/Animación 4.gif)</p>
-<ol class="simple">
-<li><p>Una vez generados estos cifrados, Alice y Bob los intercambian. Note que como aún no hay un canal seguro de comunicación, <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span> son públicos.</p></li>
-</ol>
-<p>![](./Animaciones/Animación 5.gif)</p>
-<ol class="simple">
-<li><p>Nuevamente realizamos la operación de ‘mezclado’. Alice mezclará el cifrado público que acaba de recibir de Bob con su clave privada (<span class="math notranslate nohighlight">\(bg\)</span> con <span class="math notranslate nohighlight">\(a\)</span>, produce <span class="math notranslate nohighlight">\(abg\)</span>). Bob, hará lo mismo con su clave privada y el cifrado público que recibió de Alice (<span class="math notranslate nohighlight">\(ag\)</span> on <span class="math notranslate nohighlight">\(b\)</span>, produce <span class="math notranslate nohighlight">\(abg\)</span>).</p></li>
-</ol>
-<p>![](./Animaciones/Animación 6.gif)</p>
-<p>Note que ahora Alice y Bob comparten un cifrado irreversible (idéntico para ambos) el cual pueden utilizar para encriptar cualquier mensaje consecuente. Alice y Bob pueden ahora establecer un canal de comunicación seguro, con encriptación simétrica.</p>
-<p>Veamos ahora, que únicamente Alice y Bob pueden generar la llave simétrica <span class="math notranslate nohighlight">\(abg\)</span>. El público tiene acceso al generador <span class="math notranslate nohighlight">\(g\)</span>, el valor <span class="math notranslate nohighlight">\(p\)</span> y las llaves cifradas <span class="math notranslate nohighlight">\(ag\)</span> y <span class="math notranslate nohighlight">\(bg\)</span>. No hay forma de ‘mezclar’ estos valores de forma tal que generen <span class="math notranslate nohighlight">\(abg\)</span>. Intentar ‘mezclar’ <span class="math notranslate nohighlight">\(bg\)</span> con <span class="math notranslate nohighlight">\(ag\)</span> produciría algo como <span class="math notranslate nohighlight">\(abgg\)</span>, lo cual es un valor completamente distinto y que no sirve para descifrar los mensajes entre Alice y Bob. ¡Hemos establecido un canal seguro de encriptación simétrica!</p>
-<p>![](./Animaciones/Animación 7.gif)</p>
-</div>
-<div class="section" id="vulnerabilidades">
-<h2>Vulnerabilidades<a class="headerlink" href="#vulnerabilidades" title="Permalink to this headline">¶</a></h2>
-<p>El procedimiento parece robusto, pero su intención es solo escudar a 2 partidos de un ojo fisgón. ¿Qué pasa cuando introducimos a una tercera parte, Mallory, que tiene el poder de interceptar y manipular mensajes entre partes en la red? Tenemos también la preocupación de que información secreta de alguna de las partes sea liberada al público. ¿Podemos satisfacer que los mensajes previos están seguros?</p>
-<div class="section" id="ataque-de-intermediario-man-in-the-middle">
-<h3>Ataque de intermediario (Man in the Middle)<a class="headerlink" href="#ataque-de-intermediario-man-in-the-middle" title="Permalink to this headline">¶</a></h3>
-<p>Suponga un mismo escenario donde Alice y Bob quieren establecer un canal de comunicación de encriptación simétrica, solo que ahora una tercera parte, Mallory, puede intervenir sobre la información que viaja en la red. Por ejemplo, si Alice quisiera mandar su propuesta de un generador <span class="math notranslate nohighlight">\(g\)</span> a Bob, Mallory sabría que esto está sucediendo evitar que esto suceda, o escoger su propio mensaje para enviarle a Bob. Note que hasta ahora, nuestro método de comunicación no tiene forma de validar el origen de un mensaje en la red, por lo que Mallory puede estar seguro de que su intromisión en el canal de Alice y Bob no es detectable (aún).</p>
-<p>El concepto de este ataque es bastante sencillo. Todo lo que debe hacer Mallory para poder interpretar todos los futuros mensaje entre Alice y Bob es suplantarlos al momento de generar la llave compartida, de forma que Mallory comparte una llave con Bob y una con Alice.</p>
-<ol class="simple">
-<li><p>Alice y Bob acuerdan un <span class="math notranslate nohighlight">\(g\)</span> y <span class="math notranslate nohighlight">\(p\)</span> públicos y generan sus llaves privadas respectivas.</p></li>
-<li><p>Alice genera <span class="math notranslate nohighlight">\(ag\)</span> y lo publica en la red con la intención de que lo reciba Bob. Bob hace lo mismo para Alice con <span class="math notranslate nohighlight">\(bg\)</span>.</p></li>
-<li><p>Mallory intercepta estos mensajes y evita que lleguen al destinatario correspondiente.</p></li>
-<li><p>Mallory genera su propia llave privada <span class="math notranslate nohighlight">\(m\)</span> y produce <span class="math notranslate nohighlight">\(mg\)</span>.</p></li>
-<li><p>Mallory responde a Alice con <span class="math notranslate nohighlight">\(mg\)</span> suplantando a Bob. Alice cree que lo que acaba de recibir es <span class="math notranslate nohighlight">\(bg\)</span>.</p></li>
-<li><p>Mallory responde a Bob con <span class="math notranslate nohighlight">\(mg\)</span> suplantando a Alice. Bob cree que lo que acaba de recibir es <span class="math notranslate nohighlight">\(ag\)</span>.</p></li>
-<li><p>Alice y Bob calculan respectivamente <span class="math notranslate nohighlight">\(mag\)</span> y <span class="math notranslate nohighlight">\(mbg\)</span>.</p></li>
-<li><p>Mallory calcula <span class="math notranslate nohighlight">\(mag\)</span> y <span class="math notranslate nohighlight">\(mbg\)</span>. Ahora comparte un secreto con el cual establecer un canal encriptado simétrico con ambos Alice y Bob. Estos no se han percatado del ataque.</p></li>
-<li><p>Cualquier cifrado enviado por Alice con la intensión de que lo reciba únicamente Bob, llega primero a Mallory. Mallory puede decidir hacer lo que quiera con este. Si la intención es solo mediar la comunicación entre Alice y Bob, Mallory debe descifrar el cifrado entrante y encriptarlo con el secreto contrario. Esto le permite editarlo, borrarlo, o incluso compartirlo con otros.</p></li>
-</ol>
-<p>Esta vulnerabilidad fue descubierta pronto, por lo cual se volvió una práctica común agregar un paso de autenticación al cifrado simétrico. Entran ahora en juego las llaves públicas.</p>
-<p>Una vez establecido el canal de comunicación entre Alice y Bob, estos se enviarán mensajes entre sí encriptando y descifrando con la clave compartida. Recordemos que al generar una llave privada <span class="math notranslate nohighlight">\(a\)</span> o <span class="math notranslate nohighlight">\(b\)</span>, esta puede generarse con una llave complementaria pública. Por este método, un mensaje encriptado con una clave (privada o pública) solo puede descifrarse con su complemento. Si por ejemplo Alice encriptara un mensaje con la llave pública de Bob, solo Bob podría descifrarlo. Si Alice encriptara con su clave privada, todos podrían descifrar el código con su clave pública. Este segundo escenario parece poco sensato, pero tiene un beneficio crucial y es que al descifrar con la llave pública de Alice, el recipiente tiene asegurado que el mensaje fue encriptado por Alice con su llave privada. Planteamos entonces el siguiente protocolo de intercambio de llaves.</p>
-<ol class="simple">
-<li><p>Alice y Bob quieren establecer una canal de comunicación encriptado.</p></li>
-<li><p>Alice encripta su llave a intercambiar con Bob, <span class="math notranslate nohighlight">\(ag\)</span>, con su clave privada.</p></li>
-<li><p>Bob encripta su llave a intercambiar con Alice, <span class="math notranslate nohighlight">\(bg\)</span>, con su clave privada.</p></li>
-<li><p>Alice y Bob intercambian en público sus llaves.</p></li>
-<li><p>Alice valida que la llave que recibió pertenece a Bob, al descifrarla con la clave pública de Bob.</p></li>
-<li><p>Bob valida que la llave que recibió pertenece a Alice, al descifrarla con la clave pública de Alice.</p></li>
-<li><p>El protocolo de Diffie Hellman procede como es usual.</p></li>
-<li><p>Todos los mensajes consecuentes deben encriptarse con la clave pública del remitente para autenticar su identidad.</p></li>
-</ol>
-<p>Si Mallory hubiera querido intervenir en el intercambio de llaves, su influencia hubiera sido evidente ya que no tiene la llave privada de Alice o de Bob con la cual generar la llave <span class="math notranslate nohighlight">\(mg\)</span> y que los respectivos destinatarios la acepten en su proceso de suplantación.</p>
-</div>
-<div class="section" id="forward-secrecy-pfs">
-<h3>Forward secrecy (PFS)<a class="headerlink" href="#forward-secrecy-pfs" title="Permalink to this headline">¶</a></h3>
-<p><em>Forward secrecy</em> es la intención de proteger mensajes pasados en caso de que su cifrado haya sido guardado por terceros y el secreto compartido sea publicado. En este caso, la responsabilidad sobre la liberación de estos mensajes no recae sobre alguna falla de Diffie-Hellman. En un inicio mencionamos la noción de una sesión de comunicación. La idea de tener sesiones cortas sobre las cuales habilitar el canal de comunicación es beneficiosa ya que cada vez que se inicie una sesión, la llave compartida puede generarse desde cero en cada ocasión, de forma que, si se libera la clave, solo los mensajes de esa sesión son vulnerables. En teoría, nada impide que utilicemos una nueva llave para cada mensaje o para cada sub-cadena de 126 bits o menos. Recordemos que comunicarse por encriptación asimétrica es un proceso costoso, por lo que quisiéramos minimizar su uso. Cada vez que intercambiamos claves y generamos un secreto compartido estamos efectuando encriptación asimétrica, ya depende de los dueños del canal establecer la frecuencia con la que se generan estas llaves efímeras.</p>
-</div>
+<div class="section" id="autenticacion">
+<h2>Autenticación<a class="headerlink" href="#autenticacion" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="conclusiones">
 <h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this headline">¶</a></h2>
-<p>El procedimiento de intercambio de claves, Diffie-Hellman, es seguro para establecer un canal de comunicación seguro y eficiente, pero no es sin sus fallas. Existen variaciones y complementos a este como el RSA o la encriptación por curva elíptica. La combinación de estos tres métodos son el estándar dorado en tecnología de encriptación y son altamente adaptables a las necesidades del contexto. Sigamos a desarrollar los conceptos matemáticos que permiten este protocolo.</p>
 </div>
 </div>
 
@@ -454,7 +336,7 @@ Se dijo con anterioridad, que el algoritmo Diffie-Hellman inicia una instancia d
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Teor%C3%ADa.html" title="previous page">Diffie - Hellman: Ilustración</a>
+    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Teor%C3%ADa.html" title="previous page">Diffie - Hellman: Teoría</a>
     <a class='right-next' id="next-link" href="../RSA/Ilustraci%C3%B3n%20RSA.html" title="next page">Chocolatería</a>
 
         </div>

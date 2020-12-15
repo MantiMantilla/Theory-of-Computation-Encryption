@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diffie - Hellman: Ilustración &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Diffie - Hellman: Teoría &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,7 +59,7 @@
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Diffie - Hellman: Ilustración" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
+    <link rel="next" title="Diffie - Hellman: Práctica" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
     <link rel="prev" title="Diffie - Hellman: Ilustración" href="Diffie%20Hellman%20Ilustrado.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -115,12 +115,12 @@
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Diffie - Hellman: Ilustración
+   Diffie - Hellman: Teoría
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Pr%C3%A1ctico.html">
-   Diffie - Hellman: Ilustración
+   Diffie - Hellman: Práctica
   </a>
  </li>
 </ul>
@@ -233,33 +233,24 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#procedimiento">
-   Procedimiento
+  <a class="reference internal nav-link" href="#primeros-conceptos">
+   Primeros conceptos
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#idea-general">
-     Idea general
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compromiso">
-     Compromiso
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#vulnerabilidades">
-   Vulnerabilidades
+  <a class="reference internal nav-link" href="#el-algoritmo">
+   El algoritmo
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ataque-de-intermediario">
-     Ataque de intermediario
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demostraciones">
+   Demostraciones
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conclusiones">
+   Conclusiones
+  </a>
  </li>
 </ul>
 
@@ -273,48 +264,24 @@
         
               <div>
                 
-  <div class="section" id="diffie-hellman-ilustracion">
-<h1>Diffie - Hellman: Ilustración<a class="headerlink" href="#diffie-hellman-ilustracion" title="Permalink to this headline">¶</a></h1>
+  <!-- #region -->
+<div class="section" id="diffie-hellman-teoria">
+<h1>Diffie - Hellman: Teoría<a class="headerlink" href="#diffie-hellman-teoria" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
-<p>Con el advenimiento de la criptografía de llave pública, resultaba imperativo el desarrollo de un sistema robusto para establecer un canal de comunicación seguro. Procedimientos anteriores bajo la premisa de llaves privadas requerían convenir un intercambio presencial o vulnerable y expuesto de llaves para encriptar y desencriptar el contenido de los mensajes del canal establecido. Los primeros sistemas de criptografía de llave pública como el knapsack contemplan un procedimiento de generación de llaves que en su momento parecía robusto pero que, según el trabajo de los creadores del RSA, es suceptible a ataques altamente eficientes que permiten calcular las claves privadas en tiempo polinomial.</p>
-<p>El knapsack, como sistema de encripción, presenta procedimientos para cada etapa y ciclo de un canal de comunicación. Una vez establecidas las claves, puede establecerse la comunicación encriptando mensajes, liberandolos y desencriptandolos en su destino. Aunque existen posibles vulnerabilidades en cada etapa, nosotros nos enfocaremos por ahora en el procedimiento para la generación e intercambio de claves. Sistemas robustos de encripción como el RSA apalancan su funcionamiento desde el procedimiento descrito a continuación.</p>
-<!-- #region -->
 </div>
-<div class="section" id="procedimiento">
-<h2>Procedimiento<a class="headerlink" href="#procedimiento" title="Permalink to this headline">¶</a></h2>
-<p>Seguiremos el ejemplo clásico de Alice y Bob. Estos dos personajes deben compartir mensajes el uno con el otro de forma secreta, es decir, sin que algún tercero pueda conocer e interpretar el contenido de los mensajes aún si sabe que existe el canal de comunicación. Como antes mencionado, el procedimiento Diffie Helman permite generar llaves con las cuales encriptar o desencriptar mensajes. Por lo pronto estudiaremos el proceso para alcanzar este <em>secreto compartido</em>.</p>
-<div class="section" id="idea-general">
-<h3>Idea general<a class="headerlink" href="#idea-general" title="Permalink to this headline">¶</a></h3>
-<p>La comunicación en secreto, según su descripción inicial, puede describirse por la siguiente secuencia de pasos (Suponga un escenario donde Alice quiere enviar un mensaje a Bob):</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-<li><p>Independiente de como convenieron un secreto compartido, Alice utiliza el secreto para encriptar el mensaje.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
-</ol>
-<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
-<ol class="simple">
-<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
-<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
-<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
-<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
-<li><p>Bob, como unico conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
-</ol>
-<p>Este procedimiento es suceptible a vulnerabilidades que estudiaremos con más detalle pronto. Note que hasta ahora Alice y bob no comparten información más allá del mensaje encriptado y la clave para encriptar. El valor de este procedimiento está en que idealmente la clave privada es desconocida por todos menos por el destinatario. En teoría, siempre podría establecerse un canal de comunicación por encripción asimétrica. En práctica, para que el cifrado con una llave pública sea seguro debe hacerse con claves que exigen un alto costo computacional. En su lugar, sería preferible establecer un canal de comunicación por encripción simétrica. Tenemos entonces el siguiente escenario.</p>
-<p>Alice y Bob pertenecen a una red pública y quieren comunicarse de manera privada. Pueden establecer cada vez su canal por encripción asimétrica, pero esto es altamente ineficiente. Pueden también establecer un canal de comunicación simétrico, pero para este deben ya compartir una clave con la que encriptar y desencriptar mensajes y convenir una en una red pública es altamente riesgoso. Un escenario ideal sería en el que Alice y Bob pudieran convenir una clave o <em>secreto compartido</em> sin que los otros miembros de la red se enteren para poder comunicarse con encripción simétrica.</p>
+<div class="section" id="primeros-conceptos">
+<h2>Primeros conceptos<a class="headerlink" href="#primeros-conceptos" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="compromiso">
-<h3>Compromiso<a class="headerlink" href="#compromiso" title="Permalink to this headline">¶</a></h3>
-<p>En 1976 Whitfield Diffie y Martin Hellman publicaron un método que permite</p>
+<div class="section" id="el-algoritmo">
+<h2>El algoritmo<a class="headerlink" href="#el-algoritmo" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="demostraciones">
+<h2>Demostraciones<a class="headerlink" href="#demostraciones" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="conclusiones">
+<h2>Conclusiones<a class="headerlink" href="#conclusiones" title="Permalink to this headline">¶</a></h2>
 <!-- #endregion -->
-</div>
-</div>
-<div class="section" id="vulnerabilidades">
-<h2>Vulnerabilidades<a class="headerlink" href="#vulnerabilidades" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="ataque-de-intermediario">
-<h3>Ataque de intermediario<a class="headerlink" href="#ataque-de-intermediario" title="Permalink to this headline">¶</a></h3>
-</div>
 </div>
 </div>
 
@@ -344,7 +311,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Ilustrado.html" title="previous page">Diffie - Hellman: Ilustración</a>
-    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Diffie - Hellman: Ilustración</a>
+    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Diffie - Hellman: Práctica</a>
 
         </div>
         

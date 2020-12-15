@@ -63,35 +63,35 @@ En términos generales, el protocolo de intercambio de llaves Diffie-Hellman est
 Veamos de forma ilustrativa el protocolo en acción. Entraremos en detalle de los aspectos matemáticos en la siguiente página.
 Se dijo con anterioridad, que el algoritmo Diffie-Hellman inicia una instancia de comunicación asimétrica, pero esta es distinta a lo que ya describimos.
 
-![](./Animaciones/Animación 1.gif)
+![](./Animaciones/Animacion-1.gif)
 
 Note en la animación que a cada parte le corresponde un espacio privado (seguro para los secretos) y comparten un espacio público disponible para ellos y cualquier tercero.
 
 1. En lugar de Alice y Bob definir una llave pública y una llave privada respectivamente, solo nos interesa que definan su llave privada ($a$ y $b$) y que acuerden entre sí, expuestos al público, dos valores $g$ y $p$.
 
-![](./Animaciones/Animación 2.gif)
+![](./Animaciones/Animacion-2.gif)
 
 Note que al pie de cada región llevamos un registro de las variables a las que han tenido acceso sus respectivos usuarios.
 
-![](./Animaciones/Animación 3.gif)
+![](./Animaciones/Animacion-3.gif)
 
-3. Con sus respectivas claves privadas, Alice y Bob computan un valor combinado con el generador $g$ (recuerde que $g$ es público). Este proceso de 'mezclar' los valore tiene un sentido matemático específico que impide que se pueda deshacer la operación. Respectivamente, Alice y Bob produjeron los valores $ag$ y $bg$ de los cuales no se pueden inferir las claves privadas $a$ y $b$. Sin $p$, esta operación es imposible.
+2. Con sus respectivas claves privadas, Alice y Bob computan un valor combinado con el generador $g$ (recuerde que $g$ es público). Este proceso de 'mezclar' los valores tiene un sentido matemático específico que impide que se pueda deshacer la operación (No es imposible pero sí en exceso dificil y costoso). Respectivamente, Alice y Bob produjeron los valores $ag$ y $bg$ de los cuales no se pueden inferir las claves privadas $a$ y $b$. Sin $p$, esta operación es imposible.
 
-![](./Animaciones/Animación 4.gif)
+![](./Animaciones/Animacion-4.gif)
 
-4. Una vez generados estos cifrados, Alice y Bob los intercambian. Note que como aún no hay un canal seguro de comunicación, $ag$ y $bg$ son públicos.
+3. Una vez generados estos cifrados, Alice y Bob los intercambian. Note que como aún no hay un canal seguro de comunicación, $ag$ y $bg$ son públicos.
 
-![](./Animaciones/Animación 5.gif)
+![](./Animaciones/Animacion-5.gif)
 
-5. Nuevamente realizamos la operación de 'mezclado'. Alice mezclará el cifrado público que acaba de recibir de Bob con su clave privada ($bg$ con $a$, produce $abg$). Bob, hará lo mismo con su clave privada y el cifrado público que recibió de Alice ($ag$ on $b$, produce $abg$).
+4. Nuevamente realizamos la operación de 'mezclado'. Alice mezclará el cifrado público que acaba de recibir de Bob con su clave privada ($bg$ con $a$, produce $abg$). Bob, hará lo mismo con su clave privada y el cifrado público que recibió de Alice ($ag$ on $b$, produce $abg$).
 
-![](./Animaciones/Animación 6.gif)
+![](./Animaciones/Animacion-6.gif)
 
 Note que ahora Alice y Bob comparten un cifrado irreversible (idéntico para ambos) el cual pueden utilizar para encriptar cualquier mensaje consecuente. Alice y Bob pueden ahora establecer un canal de comunicación seguro, con encriptación simétrica.
 
 Veamos ahora, que únicamente Alice y Bob pueden generar la llave simétrica $abg$. El público tiene acceso al generador $g$, el valor $p$ y las llaves cifradas $ag$ y $bg$. No hay forma de 'mezclar' estos valores de forma tal que generen $abg$. Intentar 'mezclar' $bg$ con $ag$ produciría algo como $abgg$, lo cual es un valor completamente distinto y que no sirve para descifrar los mensajes entre Alice y Bob. ¡Hemos establecido un canal seguro de encriptación simétrica!
 
-![](./Animaciones/Animación 7.gif)
+![](./Animaciones/Animacion-7.gif)
 
 ## Vulnerabilidades
 
