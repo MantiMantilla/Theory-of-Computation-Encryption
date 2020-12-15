@@ -1,5 +1,5 @@
 <!-- #region -->
-# Diffie - Hellman: Ilustración
+# Ilustración
 
 ## Motivación
 

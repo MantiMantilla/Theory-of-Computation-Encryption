@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diffie - Hellman: Teoría &#8212; Teoría de la Computación - Criptografía</title>
+    <title>Teoría &#8212; Teoría de la Computación - Criptografía</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -59,8 +59,8 @@
     <link rel="shortcut icon" href="../../_static/icon.png"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Diffie - Hellman: Práctica" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
-    <link rel="prev" title="Diffie - Hellman: Ilustración" href="Diffie%20Hellman%20Ilustrado.html" />
+    <link rel="next" title="Práctica" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" />
+    <link rel="prev" title="Ilustración" href="Diffie%20Hellman%20Ilustrado.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -110,17 +110,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Ilustrado.html">
-   Diffie - Hellman: Ilustración
+   Ilustración
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Diffie - Hellman: Teoría
+   Teoría
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="Diffie%20Hellman%20Pr%C3%A1ctico.html">
-   Diffie - Hellman: Práctica
+   Práctica
   </a>
  </li>
 </ul>
@@ -137,12 +137,12 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../RSA/Teor%C3%ADa%20de%20RSA.html">
-   Teoría de RSA
+   Teoría
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../RSA/RSA%20en%20pr%C3%A1ctica.html">
-   RSA en práctica
+   Práctica
   </a>
  </li>
 </ul>
@@ -233,11 +233,6 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#primeros-conceptos">
-   Primeros conceptos
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#el-algoritmo">
    El algoritmo
   </a>
@@ -265,16 +260,33 @@
               <div>
                 
   <!-- #region -->
-<div class="section" id="diffie-hellman-teoria">
-<h1>Diffie - Hellman: Teoría<a class="headerlink" href="#diffie-hellman-teoria" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="teoria">
+<h1>Teoría<a class="headerlink" href="#teoria" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="primeros-conceptos">
-<h2>Primeros conceptos<a class="headerlink" href="#primeros-conceptos" title="Permalink to this headline">¶</a></h2>
+<p>En la página anterior describimos el protocolo de intercambio de llaves en terminos generales y simplificados. Acciones como ‘mezclar’ las claves, encriptar un mensaje o asegurar que el público no tiene acceso a ciertos valores sea porque son privados o porque son muy dificiles de calcular son todas afirmaciones acertadas pero peligrosamente generales. Esta página busca elaborar con formalidad acerca de los procedimientos matemáticos, teoremas y demás abstracciones antes mencionadas.</p>
+<p>Suponemos un ligero entendimiento de matemática discreta y algebra para desarrollar expresiones de lógica.</p>
 </div>
 <div class="section" id="el-algoritmo">
 <h2>El algoritmo<a class="headerlink" href="#el-algoritmo" title="Permalink to this headline">¶</a></h2>
+<p>En la página anterior estudiamos el paso a paso del algoritmo sin pensar mucho en como generamos los valores mencionados. Vamos paso por paso estudiando los valores necesarios.</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+</ol>
+<p>Nada fuera de lo usual acá. Es tan solo la motivación detras los siguientes pasos.</p>
+<ol class="simple">
+<li><p>Alice y Bob concuerdan en un valor generador <span class="math notranslate nohighlight">\(g\)</span> y un módulo <span class="math notranslate nohighlight">\(p\)</span> para publicar.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob utiliza el mismo secreto compartido para desencriptar el cifrado y leerlo.</p></li>
+</ol>
+<p>Estos pasos describen la comunicación entre dos partes simétrica. Veamos ahora su contraparte asimétrica.</p>
+<ol class="simple">
+<li><p>Alice tiene un mensaje que quiere enviar a Bob.</p></li>
+<li><p>Alice conoce la llave pública (accesible por todo interesado) de Bob y encripta su mensaje con la llave.</p></li>
+<li><p>El cifrado solo puede desencriptarse con la llave privada de Bob. Las claves existen en pares, siendo la versión pública del destinatario la que se usa para encriptar el mensaje y la privada para desencriptarlo.</p></li>
+<li><p>Alice publica su cifrado en la red con Bob como destinatario (Aunque cualquiera podría interceptarlo).</p></li>
+<li><p>Bob, como único conocedor de su llave privada, desencripta y lee el mensaje original de Alice.</p></li>
+</ol>
 </div>
 <div class="section" id="demostraciones">
 <h2>Demostraciones<a class="headerlink" href="#demostraciones" title="Permalink to this headline">¶</a></h2>
@@ -310,8 +322,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Ilustrado.html" title="previous page">Diffie - Hellman: Ilustración</a>
-    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Diffie - Hellman: Práctica</a>
+    <a class='left-prev' id="prev-link" href="Diffie%20Hellman%20Ilustrado.html" title="previous page">Ilustración</a>
+    <a class='right-next' id="next-link" href="Diffie%20Hellman%20Pr%C3%A1ctico.html" title="next page">Práctica</a>
 
         </div>
         
